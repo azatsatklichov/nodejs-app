@@ -1,0 +1,54 @@
+
+
+
+-- So once you see browser, VAR defined variables are seen globally there
+-- Good practice is like Angualr keep all in one global then make other are property in that object
+
+
+
+Internal External Modules in TS
+---------------------------------
+Modules are handy for large projects to organize. To make code maintanable and extendible and controllable.
+
+
+Internal Modules - dev-time references and type cheching 
+-----
+- Namespace-like modules
+- For grouping code
+- No need to “import” them
+
+Namespaces
+Tool for organizing code
+No special loader required
+Prevents global namespace pollution
+Best for smaller client applications
+
+
+
+External  (once import used ;] ) - Modules use CommonJS or AMD conventions 
+-------
+- Separately loadable modules
+- Exported entities can be imported into other modules
+-  import viewmodels = require('./viewmodels');
+- loaders ;)  CommonJS  or AMD Conventions:  http://requirejs.org/ 
+
+-------------------------------------------
+
+
+
+
+AMD  - Asynchronous Module Definition
+
+- Manage Dependencies, Loads them asynchronously
+- Loads modules in sequence: Based on defined dependencies. Who requires who 
+- require.js
+
+
+---------- 
+Modules
+Tool for organizing code
+Native support in Node.js
+Browsers supported with module loader
+Supports ES2015 module syntax
+Facilitates code reuse
+Modules are the future!

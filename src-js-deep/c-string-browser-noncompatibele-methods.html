@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript String Methods</h2>
+
+<p>ECMAScript 5 allows property acces on strings. but read only:</p>
+
+<p id="demo"></p>
+
+<pre>
+Property access might be a little unpredictable:
+
+It does not work in Internet Explorer 7 or earlier
+It makes strings look like arrays (but they are not)
+If no character is found, [ ] returns undefined, while charAt() returns an empty string.
+It is read only. str[0] = "A" gives no error (but does not work!)
+</pre>
+
+<script>
+    var str = "HELLO WORLD";
+    str[0] = "A";  // Does not work
+    document.getElementById("demo").innerHTML = str[0];
+</script>
+</body>
+</html>
+

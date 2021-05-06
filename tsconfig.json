@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig-base.json",
+  "references": [
+    {
+      "path": "./client"
+
+    },
+    {
+      "path": "./server"
+    }
+  ], 
+  "files": [] //[] says no files belong to this parent config
+}

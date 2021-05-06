@@ -1,0 +1,155 @@
+
+
+
+
+<h2>JavaScript Functions</h2>
+
+<p>CREATING FUNCTIONS</p>
+
+1-way: Function Declarations
+<p id="demo"></p>
+
+<script>
+    var x = myFunction(4, 3);
+    document.getElementById("demo").innerHTML = x;
+
+    function myFunction(a, b) {
+        return a * b;
+    }
+</script>
+
+
+2-way: Function Expressions
+
+
+<p id="demo2"></p>
+
+<script>
+    var myFunction = function (a, b) {return a * b}
+    document.getElementById("demo2").innerHTML = myFunction(4, 3);
+</script>
+
+
+3-way: The Function() Constructor
+
+
+<p>JavaScript has an built-in function constructor.</p>
+<p id="demo3"></p>
+
+<script>
+    var myFunction = new Function("a", "b", "return a * b");
+    document.getElementById("demo3").innerHTML = myFunction(4, 3);
+</script>
+
+
+<h2>Function Hoisting</h2>
+Most of the time, you can avoid using the new keyword in JavaScript.
+Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope.
+<br />
+Functions defined using an expression are not hoisted.
+<pre>
+    myFunction(5);
+
+function myFunction(y) {
+  return y * y;
+}
+
+</pre>
+
+
+<h2>Self-Invoking Functions - IIFE</h2>
+Function expressions can be made "self-invoking".
+
+A self-invoking expression is invoked (started) automatically, without being called.
+Function expressions will execute automatically if the expression is followed by ().
+
+<br />
+You cannot self-invoke a function declaration.
+You have to add parentheses around the function to indicate that it is a function expression:
+<p>Functions can be invoked automatically without being called:</p>
+
+<p id="demogh"></p>
+
+<script>
+    (function () {
+        document.getElementById("demogh").innerHTML = "HELLO! I called myself";
+    })();
+</script>
+The function above is actually an anonymous self-invoking function (function without name).
+
+
+
+<h2>Functions can be treated as values:</h2>
+<p id="demoee"></p>
+
+<script>
+    function myFunction(a, b) {
+        return a * b;
+    }
+    var x = myFunction(4, 3);
+    document.getElementById("demoee").innerHTML = x;
+</script>
+
+
+
+<h2>Functions are Objects</h2>
+The typeof operator in JavaScript returns "function" for functions.
+<br />
+But, JavaScript functions can best be described as objects. JavaScript functions have both properties and methods.
+The arguments.length property returns the number of arguments received when the function was invoked:
+<p>The arguments.length property returns the number of arguments received by the function:</p>
+
+<p id="demooo"></p>
+
+<script>
+    function myFunction(a, b) {
+        return arguments.length;
+    }
+    document.getElementById("demooo").innerHTML = myFunction(4, 3);
+</script>
+
+
+
+<p id="demoww"></p>
+
+<script>
+    function myFunction(a, b) {
+        return a * b;
+    }
+    document.getElementById("demoww").innerHTML = myFunction.toString();
+</script>
+
+
+
+<h2>Arrow Functions</h2>
+Arrow functions allows a short syntax for writing function expressions.
+<br />
+Arrow functions do not have their own this. They are not well suited for defining object methods.
+<br />
+You don't need the function keyword, the return keyword, and the curly brackets.
+
+Arrow functions are not hoisted. They must be defined before they are used.
+
+Using const is safer than using var, because a function expression is always constant value.
+
+You can only omit the return keyword and the curly brackets if the function is a single statement. Because of this, it might be a good habit to always keep them:
+
+
+
+<p>With arrow functions, you don't have to type the function keyword, the return keyword, and the curly brackets.</p>
+
+<p>Arrow functions are not supported in IE11 or earlier.</p>
+
+<p id="demorrr"></p>
+
+<script>
+    const x = (x, y) => x * y;
+    document.getElementById("demorrr").innerHTML = x(5, 5);
+</script>
+
+<p id="demopp"></p>
+
+<script>
+    const x = (x, y) => { return x * y };
+    document.getElementById("demopp").innerHTML = x(5, 5);
+</script>

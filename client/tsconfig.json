@@ -1,0 +1,19 @@
+{
+  "extends": "./../tsconfig-base.json",
+  "compilerOptions": {
+    "target": "ES5", //import is browser compatibility e.g. ES2020 not works 
+    "module": "ES6", //or commonjs     
+    "outDir": "./../out/client",
+    "composite": true,    //without this, parent tsconfig cannot reference it 
+    "tsBuildInfoFile": "./../out/cache/client/.tsbuildinfo",
+    "baseUrl": "./",
+    "paths": {
+      "*" : ["src/@types/*"]
+    },
+    "strictNullChecks": false,
+    "lib": [
+      "es5",
+      "dom"
+    ]
+  }, 
+}

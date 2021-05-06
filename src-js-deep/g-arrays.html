@@ -1,0 +1,174 @@
+
+<h2>JavaScript Arrays</h2>
+
+<p>Arrays use numbers to access its elements.</p>
+
+<p id="demo"></p>
+
+<script>
+    var person = ["John", "Doe", 46];
+    document.getElementById("demo").innerHTML = person[0];
+</script>
+
+
+
+
+
+<h2>JavaScript Arrays</h2>
+
+
+<p>The typeof operator, when used on an array, returns object:</p>
+
+<p id="demo1"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo1").innerHTML = typeof fruits;
+</script>
+
+<h2>How can I know, if it is an Array</h2>
+
+<p>This "home made" isArray() function returns true when used on an array:</p>
+
+<p id="demo2"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo2").innerHTML = isArray(fruits);
+
+    function isArray(myArray) {
+        return myArray.constructor.toString().indexOf("Array") > -1;
+    }
+</script>
+
+
+<p>The instanceof operator returns true when used on an array:</p>
+<p id="demo3"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo3").innerHTML = fruits instanceof Array;
+</script>
+
+
+
+<h2>JavaScript Arrays</h2>
+
+<p>Avoid using new Array(). Use [] instead..</p>
+
+<p id="demo5"></p>
+
+<script>
+    var points = new Array(40); //allocates 40 empty objects
+    document.getElementById("demo5").innerHTML = points[0];
+</script>
+
+
+
+<h2>JavaScript Array Methods</h2>
+
+<h2>shift()</h2>
+
+<p>The shift() method returns the element that was shifted out.</p>
+
+<p id="demo1z"></p>
+<p id="demo2z"></p>
+<p id="demo3z"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo1z").innerHTML = fruits;
+    document.getElementById("demo2z").innerHTML = fruits.shift();
+    document.getElementById("demo3z").innerHTML = fruits;
+</script>
+
+<h2>unshift()</h2>
+
+<p>The unshift() method adds new elements to the beginning of an array.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demob"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits;
+
+    function myFunction() {
+        fruits.unshift("Lemon");
+        document.getElementById("demob").innerHTML = fruits;
+    }
+</script>
+
+
+
+
+<h2>JavaScript Array Sort</h2>
+
+<p>Click the buttons to sort the array alphabetically or numerically.</p>
+
+<button onclick="myFunction1()">Sort Alphabetically</button>
+<button onclick="myFunction2()">Sort Numerically</button>
+
+<p id="demod"></p>
+
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demod").innerHTML = points;
+
+    function myFunction1() {
+        points.sort();
+        document.getElementById("demod").innerHTML = points;
+    }
+    function myFunction2() {
+        points.sort(function(a, b){return a - b});
+        document.getElementById("demo").innerHTML = points;
+    }
+</script>
+
+
+
+
+<p>Click the button (again and again) to sort the array in random order.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demof"></p>
+
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demof").innerHTML = points;
+
+    function myFunction() {
+        points.sort(function(a, b){return 0.5 - Math.random()});
+        document.getElementById("demof").innerHTML = points;
+    }
+</script>
+
+
+
+<h2>JavaScript Array Sort</h2>
+
+<h3>The Fisher Yates Method</h3>
+
+<p>Click the button (again and again) to sort the array in random order.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demox"></p>
+
+<script>
+    var points = [40, 100, 1, 5, 25, 10];
+    document.getElementById("demox").innerHTML = points;
+
+    function myFunction() {
+        var i, j, k;
+        for (i = points.length -1; i > 0; i--) {
+            j = Math.floor(Math.random() * i)
+            k = points[i]
+            points[i] = points[j]
+            points[j] = k
+        }
+        document.getElementById("demox").innerHTML = points;
+    }
+</script>

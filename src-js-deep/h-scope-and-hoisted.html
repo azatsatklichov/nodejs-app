@@ -1,0 +1,151 @@
+<h2>LOCAL variable</h2>
+
+
+LOCAL Variables
+<p>Outside myFunction() carName is undefined.</p>
+
+<p id="demo1"></p>
+
+<p id="demo2"></p>
+
+<script>
+    myFunction();
+
+    function myFunction() {
+        var carName = "Volvo";
+        document.getElementById("demo1").innerHTML = typeof carName + " " + carName + "  ## also window-obj: " + window.carName;
+    }
+
+    document.getElementById("demo2").innerHTML = typeof carName;
+</script>
+
+
+<h2>GLOBAL variable</h2>
+
+<p>A GLOBAL variable can be accessed from any script or function.</p>
+
+<p id="demo3"></p>
+
+<script>
+    var carName3 = "Volvo";
+    myFunction();
+
+    function myFunction() {
+        document.getElementById("demo3").innerHTML = "I can display " + carName3 + "  ## also window-obj: " + window.carName3;
+    }
+</script>
+
+
+<h2>AUTOMATIC GLOBAL variable</h2>
+<p>If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable:</p>
+
+<p id="demo4"></p>
+
+<script>
+    myFunction();
+    // code here can use carName as a global variable
+    document.getElementById("demo4").innerHTML = "I can display " + carName4 + "  ##  also window-obj: " + window.carName4;
+
+    function myFunction() {
+        carName4 = "Volvo";
+    }
+</script>
+
+
+<h2>window var</h2>
+
+<p>In HTML, global variables defined with <b>var</b>, will become window variables.</p>
+
+<p id="demoj"></p>
+
+<script>
+    var carNamej = "Volvo";
+
+    // code here can use window.carName
+    document.getElementById("demoj").innerHTML = "I can display ## " + window.carNamej;
+</script>
+
+
+<h1>Hoisting</h1>
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).
+
+<br/>
+JavaScript Declarations are Hoisted. In JavaScript, a variable can be declared after it has been used.
+<br/>
+In other words; a variable can be used before it has been declared.
+
+<p id="demohh"></p>
+
+<script>
+    x = 5; // Assign 5 to x
+
+    elem = document.getElementById("demohh"); // Find an element
+    elem.innerHTML = x;           // Display x in the element
+
+    var x; // Declare x
+</script>
+
+
+<h2>Hoisting not apply for let and const</h2>
+<p>With <b>let</b>, you cannot use a variable before it is declared:</p>
+
+<p id="demo"></p>
+
+The let and const Keywords
+Variables defined with let and const are hoisted to the top of the block, but not initialized.
+
+Meaning: The block of code is aware of the variable, but it cannot be used until it has been declared.
+
+Using a let or const variable before it is declared will result in a ReferenceError.
+
+The variable is in a "temporal dead zone" from the start of the block until it is declared:
+<script>
+    // Check the console, this next line will produce an error:
+    carNamekk = "Volvo";
+    document.getElementById("demo").innerHTML = carNamekk;
+    let carNamekk;
+    //h-scope-and-hoisted.html?_ijt=n5u9rie2774auvjk6omggbka7l:112 Uncaught ReferenceError: Cannot access 'carNamekk' before initialization
+</script>
+
+
+<h2>JavaScript only hoists declarations, not initializations.</h2>
+JavaScript Initializations are Not Hoisted
+<
+<p id="demovv"></p>
+
+<script>
+    var x = 5; // Initialize x
+    var y = 7; // Initialize y
+
+    elem = document.getElementById("demovv"); // Find an element
+    elem.innerHTML = x + " " + y;       // Display x and y
+
+</script>
+
+As you see no hoisting for initializations
+
+<p id="demorr"></p>
+
+<script>
+    var x2 = 5;  // Initialize x
+
+    elem = document.getElementById("demorr");      // Find an element
+    elem.innerHTML = "x2 is " + x2 + " and y2 is " + y2;  // Display x and y
+
+    var y2 = 7;  // Initialize y
+</script>
+
+
+<h1>What happened if no VAR used to declare</h1>
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope
+(to the top of the current script or the current function).
+
+<p id="dw"></p>
+
+<script>
+    //var x; // Declare x
+    x = 12345; // Assign 5 to x
+    elem = document.getElementById("dw");
+    elem.innerHTML = x + "  I can display ## " + window.x;
+
+</script>

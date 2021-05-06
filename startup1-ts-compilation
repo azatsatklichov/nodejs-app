@@ -1,0 +1,224 @@
+
+npm ERR!     C:\Users\as892333\AppData\Roaming\npm-cache\_logs
+
+//common compiler options
+-- module   or --m
+--moduleResolution
+--target   or --t 
+--watch  or --w 
+--outDir 
+--noImplicitAny
+
+
+
+
+
+//creates package.json if not exist with default setting with -y option 
+> npm init -y  
+
+//globally installs 
+> npm install -g typescript@latest
+>npm install –save-dev typescript@latest
+
+
+//for local usage in project, updates package.json
+> npm install --save-dev  typescript@latest
+
+//run command in scripts of package.json
+> npm test
+
+//compile, just to see hello world style
+>tsc .\server\server.ts
+>node .\server\server.js
+
+//or shortcut 
+>tsc .\server\server.ts | node .\server\server.js
+
+//To have full control compilation process - use .tsconfig.json file
+>tsc --init
+
+//with below, we can not see what happened
+>tsc
+
+//set "listEmittedFiles": true
+>tsc 
+PS C:\workspace\nodejs-app> tsc
+TSFILE: C:/workspace/nodejs-app/server/server.js
+
+//server app
+>npm install --save-dev express
+>Try `npm i --save-dev @types/express`
+//so just install TYPES (*.d.ts)
+>npm i --save-dev @types/express
+
+//then run server again
+>tsc .\server\server.ts | node .\server\server.js
+
+//Typescript compiler options (for full controll:   targets, strict, .. ) 
+//e.g. composite - says project can be imported by other project
+//sourceMap [server.js.map] to debug Chrom, declaration[server.d.ts], ..
+
+
+//extending project 
+>tsc --p .\server\tsconfig.json
+
+
+
+//Default BUILD tasks are desc in tasks.json - good for team work
+//can be shared - Git, .. 
+//so you no longer need to apply: tsc --p .\server\tsconfig.json
+//configure Default tasks via: Terminal -> Configure Default Build Task ...
+//kind is BUILD or WATCH : "kind": "build",
+//Run Build Task: [Ctrl+Shift+B]
+> Executing task: c:\workspace\nodejs-app\node_modules\.bin\tsc.cmd -p c:\workspace\nodejs-app\server\tsconfig.json <
+
+TSFILE: c:/workspace/nodejs-app/out/server/server.js
+TSFILE: c:/workspace/nodejs-app/out/server/server.js.map
+TSFILE: c:/workspace/nodejs-app/out/server/server.d.ts
+
+//WATCH MODE - makes BUILD AUTOMATIC, like Spring framework DevOption 
+//disadvantages is  - more config (gulp, causes memory for big projects, ..) difficult to junior devs. tricky, .. 
+//look "isDefault": true
+
+>  [Ctrl+Shift+B]
+[6:30:07 PM] Starting compilation in watch mode...
+
+TSFILE: c:/workspace/nodejs-app/out/server/server.js
+TSFILE: c:/workspace/nodejs-app/out/server/server.js.map
+TSFILE: c:/workspace/nodejs-app/out/server/server.d.ts  
+[6:30:09 PM] Found 0 errors. Watching for file changes. 
+
+
+//Project References (organize, optimize, minimizing config, simple, .. )
+//multiproject  (just like in parn-child pom.xml Java ;) )
+//parent config (like parent pom) tsconfig - it has no files its own, but compiles all reference (child) projects
+>tsc --init
+
+//to build child projects, use --build option in parent config
+>tsc --build 
+>tsc  //this will not build child projects 
+
+
+
+//Type Declaration files  - .d.ts  (helps  code-hint, advanced error detection)
+//e.g. JS libs/files (d3, jQuery, lodash, ... ) methods will be typed (parameters typed, return values typed) in d.ts files
+//In internet there are a lot declaration files, .. see node_modules/@types 
+//e.g. see express/index.d.ts  - there are declare statements, this code is not to execute to tell TS about types, .. helps for intellisence 
+//intellicense read those code-comments in d.ts files and infer you during code completion 
+
+//let try declaration file for lodash 
+//in package.json it will be in [--save] dependencies  not [--save-dev] dev-dependencies
+>npm i --save lodash 
+
+//once you import lodash it says: Could not find a declaration file for module 'lodash'. 'C:/workspace/nodejs-app/node_modules/lodash/lodash.js' implicitly has an 'any' type.
+// Try `npm i --save-dev @types/lodash` if i
+>npm i --save-dev @types/lodash
+
+//let declare CUSTOM declaration file (for legacy reason, e.g. ES5, .. )
+//compiler type warnings, to use logically organize interfaces, code hints, annotations,  .. 
+//create @types directory to keep all custom d.ts files, can be used by client&server 
+//now lets run 
+//run command in scripts of package.json  (this was before)
+>  npm run test 
+//or same 
+> npm test
+
+
+//we can run server as before, but in OUT directory 
+PS C:\workspace\nodejs-app> node .\out\server\server.js
+Listening port: 3000
+
+//run : http://localhost:3000/     on browser 
+
+//lets configure package.json to make run server as well 
+> npm run build-server
+//but this gives error  npm <command> --key value 
+> npm build-server
+
+> nodejs-app@1.0.0 build-server C:\workspace\nodejs-app
+> tsc -p server
+
+TSFILE: C:/workspace/nodejs-app/out/server/server copy.js
+TSFILE: C:/workspace/nodejs-app/out/server/server copy.js.map
+TSFILE: C:/workspace/nodejs-app/out/server/server copy.d.ts
+TSFILE: C:/workspace/nodejs-app/out/server/server.js
+TSFILE: C:/workspace/nodejs-app/out/server/server.js.map
+TSFILE: C:/workspace/nodejs-app/out/server/server.d.ts
+TSFILE: C:/workspace/nodejs-app/out/server/tsconfig.tsbuildinfo
+
+//run server
+>npm run serve
+
+//or to build all referenced projects
+>npm run build-all-ref-prj
+
+//run server
+>npm run serve
+
+//build client separately
+>npm run build-client
+
+//OR just use NPM scripts dialog ;) 
+
+run : 
+http://localhost:3000      on browser
+http://localhost:3000/forms      on browser
+
+//run  
+http://localhost:3001/main.js   on browser
+http://localhost:3001/serve-client
+
+
+
+//debugging
+//attach it in launch.json, pub debugger in server.ts
+
+
+
+//ESLint plugin, typescript-eslint/parser makes TREE structure parser 
+>npm i --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
+>eslint --init 
+//can not create is, so manually create .eslintrc   file 
+//run like below or from NPM SCRIPTS lint
+>npm run lint 
+
+> nodejs-app@1.0.0 lint C:\workspace\nodejs-app
+> eslint server/*ts
+
+(node:24796) ExperimentalWarning: queueMicrotask() is experimental.
+
+
+
+//debug client with chrome
+//install extension:  Debugger for chrome
+//chose Chrome launch
+http://localhost:3001/main2.js
+
+Client-Side TypeScript Debugging with Chrome Extensions
+Install Chrome Debugger for VSCode 
+Update launch.json to include Chrome debugging script
+Execute debugging procedure via Debug panel and note the output in Chrome
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

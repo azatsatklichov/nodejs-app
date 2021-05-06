@@ -1,0 +1,32 @@
+{
+  "extends": "./../tsconfig-base.json",
+  "compilerOptions": {
+    //"outFile": "./../app.js",  //to generate one single e.g. app.js file - merges all JS in one file
+    "outDir": "./../out/server",
+    "composite": true,  //without this, parent tsconfig cannot reference it 
+    "tsBuildInfoFile": "./../out/cache/server/.tsbuildinfo",
+    "module": "commonjs",
+    "target": "ES2015",
+    //"strictNullChecks": false,
+    "lib": [
+      "es5"
+    ],
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "../@types"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "src/@types/*"
+      ]
+    },
+  },
+  "files": [
+    "server.ts",
+    "../@types/question.d.ts"
+    //"typings/main.d.ts"    
+  ]
+}

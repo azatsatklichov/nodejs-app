@@ -1,0 +1,42 @@
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "description": "NodeJS, TS Playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc -v",
+    "build-all": "tsc --build",
+    "build-all-clean": "tsc --build --clean",
+    "build-server": "tsc -p server",
+    "build-client": "tsc -p client",
+    "serve-server": "node ./out/server/server.js",
+    "serve-client": "node ./out/client/client.js",
+    "serve-client2": "node ./out/client/test.js",
+    "debug": "node --inspect=9229 ./out/server/server.js",
+    "lint": "eslint server/*ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asatklichov/nodejs-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asatklichov/nodejs-app/issues"
+  },
+  "homepage": "https://github.com/asatklichov/nodejs-app#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "@types/lodash": "^4.14.168",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "typings": "^2.1.1"
+  }
+}

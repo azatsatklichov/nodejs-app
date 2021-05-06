@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript typeof</h1>
+
+
+
+<h2>undefined</h2>
+
+<p>The value (and the data type) of a variable with no value is <b>undefined</b>.</p>
+
+<p id="demoh"></p>
+
+<script>
+var car;
+document.getElementById("demoh").innerHTML =
+car + "<br>" + typeof car;
+</script>
+
+<h2>undefined</h2>
+
+<p>Variables can be emptied if you set the value to <b>undefined</b>.</p>
+
+<p id="demok"></p>
+
+<script>
+var car = "Volvo";
+car = undefined;
+document.getElementById("demok").innerHTML =
+car + "<br>" + typeof car;
+</script>
+
+
+
+
+<h2>Empty String</h2>
+
+<p>An empty string has both a legal value and a type:</p>
+
+<p id="demol"></p>
+
+<script>
+var car = "";
+document.getElementById("demol").innerHTML =
+"The value is: " +
+car + "<br>" +
+"The type is: " + typeof car;
+</script>
+ 
+
+<h2>NULL</h2>
+
+<p>The value (and the data type) of a variable with  NULL is:  value=NULL, typeof NULL is OBJECT  </p>
+
+In JavaScript null is "nothing". It is supposed to be something that doesn't exist.
+<br />
+Unfortunately, in JavaScript, the data type of null is an object.
+<br />
+You can consider it a bug in JavaScript that typeof null is an object. It should be null.
+
+<p id="demou"></p>
+
+<script>
+var car = null;
+document.getElementById("demou").innerHTML =
+car + "<br>" + typeof car;
+</script>
+
+
+<h2>NULL</h2>
+
+<p>Objects can be emptied by setting the value to <b>null</b>.</p>
+
+<p id="demoj"></p>
+
+<script>
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+person = null;
+document.getElementById("demoj").innerHTML = typeof person;
+</script>
+
+
+<h2>undefined</h2>
+
+<p>Objects can be emptied by setting the value to <b>undefined</b>.</p>
+
+<p id="demol3"></p>
+
+<script>
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+person = undefined;
+document.getElementById("demol3").innerHTML = person;
+</script>
+
+
+<h2>Undefined and null difference</h2>
+
+<p>Undefined and null are equal in value but different in type:</p>
+
+<p id="demob"></p>
+
+<script>
+document.getElementById("demob").innerHTML =
+typeof undefined + "<br>" +
+typeof null + "<br><br>" +
+(null === undefined) + "<br>" +
+(null == undefined);
+</script>
+
+
+
+<h2>Primitive Data: string, number, boolean</h2>
+<p>The typeof operator returns the type of a variable or an expression.</p>
+
+<p id="demo"></p>
+
+<script>
+var xx = 5==6;
+document.getElementById("demo").innerHTML = 
+typeof "" + "<br>" +
+typeof 2  +   "<br>" + 
+typeof 3.14 + "<br>" +
+typeof (3) + "<br>" +
+typeof (3 + 4) + "<br>" +
+typeof "john" + "<br>" +  
+typeof true + "<br>" +
+typeof false + "<br>" +
+typeof xx;
+</script>
+
+<h2>Complex DATA</h2>
+<p>The typeof operator returns object for both objects, arrays, and null.</p>
+<p>The typeof operator does not return object for functions.</p>
+
+<p id="demoww"></p>
+
+<script>
+document.getElementById("demoww").innerHTML = 
+typeof {name:'john', age:34} + "<br>" +
+typeof [1,2,3,4] + "<br>" +
+typeof null + "<br>" +
+typeof function myFunc(){};
+</script>
+</body>
+</html> 
+ 
+
