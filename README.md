@@ -1,3 +1,6 @@
 # nodejs-app
-NodeJS, TS Playground
+- Practical Typescript 
+- NodeJS Journey 
+- VSCode Journey
+- Javascript Dos and Donts  
 
