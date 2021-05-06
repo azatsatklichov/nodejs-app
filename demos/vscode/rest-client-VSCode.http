@@ -1,0 +1,24 @@
+GET https://eu.vatapi.com/v2
+
+GET http://localhost:9091/vatRates?count=5
+
+###
+GET http://localhost:9091/vatRates?count=12
+
+
+POST https://vatlayer.com/  
+content-type: application/json
+{
+   "valid": true,
+   "format_valid": true,
+   "query": "LU26375245",
+   "country_code": "LU",
+   "vat_number": "26375245",
+   "company_name": "AMAZON EUROPE CORE S.A R.L.",
+   "company_address": "5, RUE PLAETIS L-2338 LUXEMBOURG"   
+}
+
+
+
+//iNTELLIj scratches 
+//https://www.postman.com/vatapi/workspace/vat-api-s-public-workspace/collection/4196441-cec7ea8f-f0fe-4591-a55b-ae72bd6125ad?ctx=documentation

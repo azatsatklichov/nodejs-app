@@ -1,0 +1,38 @@
+# open code with current directory
+code .
+
+# open the current directory in the most recently used code window
+code -r .
+
+# create a new window
+code -n
+
+# change the language
+code --locale=es
+
+# open diff editor
+code --diff <file1> <file2>
+
+# open file at specific line and column <file:line[:character]>
+code --goto package.json:10:5
+
+# see help options
+code --help
+
+# disable all extensions
+code --disable-extensions .
+
+PS C:\ws_vscode\vscode_journney> code .
+PS C:\ws_vscode\vscode_journney> code .
+PS C:\ws_vscode\vscode_journney> code .
+PS C:\ws_vscode\vscode_journney> code .
+PS C:\ws_vscode\vscode_journney> code about.txt .
+PS C:\ws_vscode\vscode_journney> code about.txt -r
+PS C:\ws_vscode\vscode_journney> C:\workspace\java-and-ts-tests\fe-tests\jest-tests^C
+PS C:\ws_vscode\vscode_journney> code C:\workspace\java-and-ts-tests\fe-tests\jest-tests -n
+
+//in new instance 
+> code -n -g  C:\workspace\che-che4z-lsp-for-cobol\clients\cobol-lsp-vscode-extension\Readme.md:112:70   
+> code -n --goto  C:\workspace\che-che4z-lsp-for-cobol\clients\cobol-lsp-vscode-extension\package.json:112:70
+
+
