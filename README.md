@@ -1,6 +1,6 @@
 # nodejs-app
 - Practical Typescript 
-- NodeJS Journey 
+- Practical  NodeJS
 - VSCode Journey
 - Javascript Dos and Donts  
 
