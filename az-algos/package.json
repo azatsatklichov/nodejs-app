@@ -1,0 +1,11 @@
+{
+  "name": "az-algos",
+  "version": "1.0.1",
+  "description": "fibonacci and factorial algorithms with iterative, recursive and memoization ways",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
