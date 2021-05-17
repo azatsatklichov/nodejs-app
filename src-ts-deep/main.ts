@@ -1,4 +1,4 @@
-import hii = require('./loader'); //no loader.ts 
+import hii = require("./loader"); //no loader.ts
 
 hii.hii();
 

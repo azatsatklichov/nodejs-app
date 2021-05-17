@@ -1,2 +1,13 @@
 >node
 
+
+console.log('===  and ===');
+
+
+console.log(x + " " + console.log(y));  
+console.log(0==true);//F
+console.log(1==true);//T 
+var check  = new Boolean (false);
+if(check) {
+    console.log("WOW FOUND, even FALSE"); 
+}

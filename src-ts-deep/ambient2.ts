@@ -1,6 +1,5 @@
 import * as _ from "lodash";
-console.log(_.snakeCase('UEFA Champions League'));
-
+console.log(_.snakeCase("UEFA Champions League"));
 
 // /// <reference path="jquery.d.ts" />
 // //ambient declaration do not appear anywhere in the Javascript

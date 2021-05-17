@@ -1,5 +1,5 @@
 export class Hier {
-     hi() {
-                    console.log("alo");
-      }
+  hi() {
+    console.log("alo");
+  }
 }

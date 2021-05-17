@@ -1,0 +1,5 @@
+Math.random()
+let x = 6
+let y=8
+console.log(x+y)
+new Date()
