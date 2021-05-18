@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "",
     "test": "tsc -v",
-    "posttest": "node -e 'console.log(\"DoneTesting\")'",
+    "posttest": "node -e console.log('DoneTesting')",
     "build-all": "tsc --build",
     "build-all-clean": "tsc --build --clean",
     "build-server": "tsc -p server",
