@@ -42,6 +42,7 @@ let myBooks = []; //tbd
 myBooks.forEach(() => console.log("Done reading!"));
 myBooks.forEach((title) => console.log(title));
 myBooks.forEach((title, idx, arr) => console.log(idx + " -" + title));
+//fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' + val));
 myBooks.forEach((title, idx, arr) => {
   console.log(idx + " -" + title);
   //tbd

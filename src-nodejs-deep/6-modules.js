@@ -4,6 +4,7 @@ function dynamicArgsFunction() {
   console.log("------");
 }
 
+
 dynamicArgsFunction(3, 7, 5, 4);
 
 //module 

@@ -27,7 +27,7 @@ npm ERR!     C:\Users\as892333\AppData\Roaming\npm-cache\_logs
 //run command in scripts of package.json
 > npm test
 
-//compile, just to see hello world style
+//compile (transpile) and run just to see hello world style
 >tsc .\server\server.ts
 >node .\server\server.js
 
@@ -39,6 +39,8 @@ npm ERR!     C:\Users\as892333\AppData\Roaming\npm-cache\_logs
 
 //with below, we can not see what happened
 >tsc
+
+//https://www.typescriptlang.org/tsconfig 
 
 //set "listEmittedFiles": true
 >tsc 

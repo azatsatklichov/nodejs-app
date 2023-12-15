@@ -1,0 +1,8 @@
+Family: {
+  Head: 'Miss Sanno',
+  headDesignation: 'Teacher',
+  Member1: 'Miss Sanchi',
+  member1Designation: 'Kid',
+  Member2: 'Master Amit',
+  member2Designation: 'Student'
+}

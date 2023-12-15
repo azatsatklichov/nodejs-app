@@ -1,8 +1,20 @@
+var x;
+var y=null;
+
+console.log(typeof x); 
+console.log(typeof y);   
+console.log(x == y)  
+console.log(x === y)  
+
+
+console.log('****************');
+
 console.log('===  and ===');
 
 
 var x = "JavaScript";        // x is a string
 var y = new String("JavaScript");  // y is an object
+console.log(x);
 console.log(x + " " + typeof x);
 console.log(y);
 console.log(y + " " + typeof y);
@@ -11,7 +23,7 @@ console.log(x===y); //false
 console.log()
 console.log(5=='5');//T
 console.log(5==='5');//F
-console.log(0=='');//F
+console.log(0=='');//T
 console.log(1=='1');//T
 console.log(0==true);//F
 console.log(1==true);//T
@@ -91,6 +103,32 @@ console.log(Object.is(hero1, hero1)); //true
 console.log(Object.is(hero1, hero2)); //false
 
 
+
+
+
+
+console.log(" ///////////  ///////////");
+
+var xc;
+console.log(xc);
+if (xc === undefined) {
+    console.log('these statements execute'); 
+} else {
+    console.log(' these statements do not execute');  
+}
+
+function func(x){
+    console.log(typeof x, arguments.length);
+}
+func(); //==> "undefined", 0
+func(7); //==> "number", 1
+func("1", "2", "3"); //==> "string", 3
+    
+
+
+console.log(typeof typeof 1);
+console.log(typeof number);//undefined
+ 
 let check  = new Boolean (false);
 if(check) {
     console.log("WOW FOUND, even FALSE");//WOW FOUND, even FALSE
@@ -102,3 +140,14 @@ if(check2) {
     console.log("WOW FOUND, even FALSE");//skipped
 }
 
+ 
+
+var x = new String("JavaScript");             
+var y = new String("JavaScript");
+console.log(x == y );  
+console.log(x === y); 
+
+
+(function IIFE(){
+	console.log( "Hello IIFE!" );
+})();

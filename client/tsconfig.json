@@ -10,7 +10,7 @@
     "paths": {
       "*" : ["src/@types/*"]
     },
-    "strictNullChecks": false,
+    "strictNullChecks": false, //to get ridoff nulls 
     "lib": [
       "es5",
       "dom"

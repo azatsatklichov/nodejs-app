@@ -13,6 +13,14 @@ for (var i = 1; i <= 10; i++) {
   // Block Scope
 }
 
+console.log('iiiii = '+i)
+
+for (let j = 1; j <= 10;j++) {
+  // Block Scope
+}
+
+console.log('iiiii = '+j)
+
 function sum(a, b) {
   var s = "sdd";
   // Function Scope - it is OK, variables not LEAK
@@ -241,6 +249,6 @@ const obje = {
 
 
 console.log(dyno);
-console.log(obje.dyno);
+console.log(obje.dyno);//undefined
 console.log(obje.dynamo);
 console.log(obje.LOG2E);

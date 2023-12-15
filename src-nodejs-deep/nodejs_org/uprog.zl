@@ -1,0 +1,33 @@
+// This is the auto-generated test for PROG
+
+module ZPROG
+   using zest
+   using zest.ZTest
+   using zest.ZTestUs
+   using cobol
+   using zos.Cics
+   using zos.Db2
+
+   function ZP_PROG_PROG(goBlock: ZTESTGO_BLOCK, itBlock: ZTEST_FUNCTION, argList: &ÝPtr32¨) :Void
+      if (goBlock.MODE_UNIT) {
+         unitStart(goBlock, itBlock);
+         if (itBlock.header.WHEN_INITIAL) {}
+         if (itBlock.header.WHEN_ENTRY) {}
+         if (itBlock.header.WHEN_BEFORE) {}
+         if (itBlock.header.WHEN_AFTER) {}
+         if (itBlock.header.WHEN_FINAL) {}
+         unitFinish(goBlock, itBlock);
+      }
+   end
+
+   var P_PROG_PROG = ZTEST_FUNCTION('PROG', 'PROG', ZP_PROG_PROG{}, 00);
+   call('ZTESTIT', {passing: P_PROG_PROG});
+
+
+// Any subsequently discovered source is to be inserted before here
+
+   var goBlock = ZUNITGO_BLOCK('PROG', 'PROG', 'ZPROG');
+   call('ZTESTGO', {passing: goBlock});
+   return_code = goBlock.header.retCode;
+end
+

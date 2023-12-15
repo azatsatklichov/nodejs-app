@@ -3,7 +3,6 @@ var y = "10";
 
 var z = x * y;
 console.log(z); //1000
-
 var z = x / y;
 console.log(z);//10
 

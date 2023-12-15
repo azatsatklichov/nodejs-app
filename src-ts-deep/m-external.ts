@@ -1,5 +1,3 @@
-import 
-
-namespace ShapeMaker {
-          var rect = new Shapes.Rectangle(2, 4);
-}
+// import  namespace =   ShapeMaker; {
+//           var rect = new Shapes2.Rectangle(2, 4);
+// }

@@ -45,4 +45,7 @@ let fieldName: string = PunchCard[startPosition];
 console.log(fieldName); //AreaA
 console.log(PunchCard[12]); //AreaB
 
- 
+
+enum Category { Biography, Poetry, Fiction, History, Children }
+
+export { Category };

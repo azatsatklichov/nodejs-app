@@ -1,5 +1,5 @@
 function convertArr2Obj(arr) {
-  return arr.reduce((acc, curr) => {  //(acc, curr)
+  return arr.reduce((acc, curr) => {  //(curr, acc)
     acc[curr[0]] = curr[1];
     return acc;
   }, {});

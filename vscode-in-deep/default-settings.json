@@ -1731,7 +1731,7 @@
           "terminal.integrated.shell.linux": null,
           // The path of the shell that the terminal uses on macOS (default: /bin/bash).
           "terminal.integrated.shell.osx": null,
-          // The path of the shell that the terminal uses on Windows (default: PowerShell).
+          // The path of the shell that the termina l uses on Windows (default: PowerShell).
           "terminal.integrated.shell.windows": null,
           // The command line arguments to use when on the Linux terminal.
           "terminal.integrated.shellArgs.linux": [],

@@ -18,7 +18,7 @@ const https = require('https');
 
 
 //or
->NODE_DEBUG="http" node C:\workspace\nodejs-app\src-nodejs-deep\1-server.js
+//>NODE_DEBUG="http" node C:\workspace\nodejs-app\src-nodejs-deep\1-server.js
 
 
 
