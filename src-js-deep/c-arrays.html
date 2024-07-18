@@ -1,7 +1,7 @@
 
 <h2>JavaScript Arrays</h2>
 
-<p>Arrays use numbers to access its elements.</p>
+<p>Arrays use numbers as indexes  to access its elements.</p>
 
 <p id="demo"></p>
 
@@ -13,10 +13,7 @@
 
 
 
-
 <h2>JavaScript Arrays</h2>
-
-
 <p>The typeof operator, when used on an array, returns object:</p>
 
 <p id="demo1"></p>
@@ -50,6 +47,17 @@
     document.getElementById("demo3").innerHTML = fruits instanceof Array;
 </script>
 
+<p id="demo33"></p>
+
+<script>
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits["OO"]="Alma";
+    console.log("This is crazy(array to object implicit convertion): "+fruits)
+    console.log(fruits["OO"]);
+    console.log(fruits);
+    console.log(fruits.length);
+    document.getElementById("demo33").innerHTML = fruits instanceof Array;
+</script>
 
 
 <h2>JavaScript Arrays</h2>
@@ -86,21 +94,14 @@
 
 <p>The unshift() method adds new elements to the beginning of an array.</p>
 
-<button onclick="myFunction()">Try it</button>
-
-<p id="demob"></p>
+ 
 
 <script>
-    var fruits = ["Banana", "Orange", "Apple", "Mango"];
-    document.getElementById("demo").innerHTML = fruits;
-
-    function myFunction() {
-        fruits.unshift("Lemon");
-        document.getElementById("demob").innerHTML = fruits;
-    }
-</script>
-
-
+    var fruits = ["Banana", "Orange", "Apple", "Mango"]; 
+    alert(fruits);
+    fruits.unshift("Lemon");
+    alert(fruits); 
+</script> 
 
 
 <h2>JavaScript Array Sort</h2>
@@ -151,9 +152,9 @@
 
 <h3>The Fisher Yates Method</h3>
 
-<p>Click the button (again and again) to sort the array in random order.</p>
+<p>Click the button (again and again) to sort the array in RANDOM ORDER.</p>
 
-<button onclick="myFunction()">Try it</button>
+<button onclick="myFunctionF()">Try it</button>
 
 <p id="demox"></p>
 
@@ -161,7 +162,7 @@
     var points = [40, 100, 1, 5, 25, 10];
     document.getElementById("demox").innerHTML = points;
 
-    function myFunction() {
+    function myFunctionF() {
         var i, j, k;
         for (i = points.length -1; i > 0; i--) {
             j = Math.floor(Math.random() * i)

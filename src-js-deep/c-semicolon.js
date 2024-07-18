@@ -1,13 +1,14 @@
-
-function f1(){
-    return
-    {
+ 
+function f1() {
+    return  {
         status: true
     };
 }
 
-function f2() {
-    return  {
+
+function f2(){
+    return
+    {
         status: true
     };
 }
