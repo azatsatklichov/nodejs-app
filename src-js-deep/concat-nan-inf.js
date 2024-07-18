@@ -1,3 +1,5 @@
+/*  //@ts-check */
+
 var x = "100";
 var y = "10";
 
@@ -18,7 +20,7 @@ console.log("3" - "2");//1
 
 
 var x = 100 / "Apple";
-console.log(100 / "Apple"); //NaN
+console.logd(100 / "Apple"); //NaN
 console.log(isNaN(x)); //true
 console.log(100 / "10"); //coercion OK
 var x = 100 / "10";

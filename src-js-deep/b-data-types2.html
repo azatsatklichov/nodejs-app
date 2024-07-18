@@ -138,11 +138,20 @@ typeof xx;
 <p id="demoww"></p>
 
 <script>
+function myFunc2(){
+    console.log('ola');
+};
+
 document.getElementById("demoww").innerHTML = 
 typeof {name:'john', age:34} + "<br>" +
 typeof [1,2,3,4] + "<br>" +
 typeof null + "<br>" +
-typeof function myFunc(){};
+typeof function myFunc(){}+"<br>"+
+typeof myFunc2 + "<br>"+
+typeof myFunc2();
+
+
+
 </script>
 </body>
 </html> 

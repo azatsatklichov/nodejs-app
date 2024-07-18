@@ -1,6 +1,18 @@
 var x;
 var y=null;
 
+let a = false;
+let b = false;
+let c = false;
+
+if(!a && !b && !c){
+    console.log("inverse");
+}
+if(!(a || b || c)){
+    console.log("mine");
+}
+
+console.log('------------------------==============-------------');
 console.log(typeof x); 
 console.log(typeof y);   
 console.log(x == y)  
