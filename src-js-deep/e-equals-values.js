@@ -1,16 +1,6 @@
 var x;
 var y=null;
-
-let a = false;
-let b = false;
-let c = false;
-
-if(!a && !b && !c){
-    console.log("inverse");
-}
-if(!(a || b || c)){
-    console.log("mine");
-}
+ 
 
 console.log('------------------------==============-------------');
 console.log(typeof x); 
@@ -60,12 +50,14 @@ console.log('BUT even two OBJECTS are not equal ;) ');
 console.log('In JAVA, two Object VALUES are always equals (equals() ) ');
 
 console.log('Another WEIRD thing is, even OBJECT, they printed as ARRAR [] ;) but below object is with {} ');
+console.log(x); //object, printed as array []
 var  xx = {c: "s"};
 console.log(xx)
 
 
-// --------------------- == and === with Numbers  ------------------------
+console.log('--------------------- == and === with Numbers  ------------------------')
 var x = 67;        // x is a number
+console.log(x);
 var y = new Number(67);  // y is an object
 console.log(x + " " + typeof x);
 console.log(y);
@@ -94,6 +86,13 @@ console.log(false == '0'); // true
 console.log(false == undefined); // false
 console.log(false == null); // false
 console.log(null == undefined); // true
+
+console.log()
+var mine = null;
+console.log(mine == undefined); // true,   here coercion happens, null becomes undefined, that is why equals
+console.log()
+
+
 console.log(' \t\r\n ' == 0); // true
 
 console.log('- ; -');
@@ -105,14 +104,17 @@ const hero2 = {
     name: 'Batman'
 };
 
-console.log(hero1 === hero1); //true
-console.log(hero1 === hero2); //false
 
-console.log(hero1 == hero1); //true
-console.log(hero1 == hero2); //false
+console.log(Object.is(hero1, hero1)); //true, itself comparison
+console.log(Object.is(hero1, hero2)); //false, two objects are not equal in java script even with same value
 
-console.log(Object.is(hero1, hero1)); //true
-console.log(Object.is(hero1, hero2)); //false
+console.log(hero1 == hero1); //true, itself comparison
+console.log(hero1 == hero2); //false, two objects are not equal in java script even with same value
+
+console.log(hero1 === hero1); //true, itself comparison
+console.log(hero1 === hero2); //false, two objects are not equal in java script even with same value and TYPE ;);) ;(
+
+
 
 
 
@@ -136,6 +138,7 @@ func(); //==> "undefined", 0
 func(7); //==> "number", 1
 func("1", "2", "3"); //==> "string", 3
     
+console.log()
 
 
 console.log(typeof typeof 1);
@@ -151,7 +154,6 @@ let check2  = false;
 if(check2) {
     console.log("WOW FOUND, even FALSE");//skipped
 }
-
  
 
 var x = new String("JavaScript");             
@@ -163,3 +165,7 @@ console.log(x === y);
 (function IIFE(){
 	console.log( "Hello IIFE!" );
 })();
+
+
+
+

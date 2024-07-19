@@ -1,10 +1,15 @@
-void function test() {
+void function test() {  
     console.log('boo!');
     // expected output: "boo!"
-}();
+}(); //IIF
+
+void function () { //for IIF you can even remove the name of function
+    console.log('boo!');
+    // expected output: "boo!"
+}(); //IIF
 
 
-//test();
+//test(); //that is why you can not find IIF function, because it is called immediately 
 
 try {
     //test();
@@ -13,13 +18,9 @@ try {
     // expected output: ReferenceError: test is not defined
 }
 
+//using void for IIFE will always evaluate to undefined. what();
 
-//It even discards the functions default return value and explicitly returns
-let i = void 2; // i === undefined  //void always returned the real undefined ;))
-console.log(i);
-
-
-//IIF
+//IIFE
 void function () {
     console.log('What')
 }();
@@ -29,6 +30,15 @@ void function what() {
 }();
 
 //what();
+
+
+console.log("---")
+
+//It even discards the functions default return value and explicitly returns
+let i = void 2; // i === undefined  //void always returned the real undefined ;))
+console.log(i);
+
+console.log("--- So void and undefined are pretty much the same --")
 
 
 /**
@@ -50,7 +60,7 @@ void function () {
     return 42;
 }(); //undefined
 
-(function x() {
+(function x() {  ///even if VOID is not used, it returns undefined
 })(); // undefined
 
 let tt = (function() {})() === void 0; //undefined

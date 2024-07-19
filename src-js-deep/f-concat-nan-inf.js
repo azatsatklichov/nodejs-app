@@ -1,5 +1,4 @@
 /*  //@ts-check */
-
 var x = "100";
 var y = "10";
 
@@ -20,7 +19,10 @@ console.log("3" - "2");//1
 
 
 var x = 100 / "Apple";
+
+//comment below line to run all successful in script 
 console.logd(100 / "Apple"); //NaN
+
 console.log(isNaN(x)); //true
 console.log(100 / "10"); //coercion OK
 var x = 100 / "10";
@@ -70,11 +72,10 @@ console.log(Number.NaN);
 
 //<h2>JavaScript Number Object Properties</h2>
 //<p>Using a Number property on a variable, expression, or value, will return undefined:</p>
-
 var x = 6;
 console.log(x.MAX_VALUE);
 
-console.log("------------------");
+console.log("-------------isNaN(NaN) ----------");
 
 console.log(isNaN(NaN));       // true
 console.log(isNaN(0));  //false
