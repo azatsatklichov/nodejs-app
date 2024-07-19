@@ -19,7 +19,7 @@ for (let j = 1; j <= 10;j++) {
   // Block Scope
 }
 
-//console.log('jjjjj = '+j)
+console.log('iiiii = '+j)
 
 function sum(a, b) {
   var s = "sdd";
@@ -50,7 +50,7 @@ Used in code ...
 */
 ans2; // open to change, can have new value
 
-//FUNCTIONS has its own scope and uses THIS, but arrow functions has no 'this'
+//FUNCTIONS has its own scope and uses THIS, but arrow functions has no
 const X = function () {
   // "this" here is the caller of X
 };

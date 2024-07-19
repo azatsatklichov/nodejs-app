@@ -7,11 +7,11 @@ const server = http.createServer((req, res) => {
   console.dir(res, {depth: 0});     
 
   console.log(req.url); 
-  res.end("Hello Nodemon !\n");
+  res.end("Hello Nodemon  ds!\n");
 });
 
 server.listen(4242, () => {
-  console.log("Server is running...");
+  console.log("Server is dd running...");
 });
 
 
