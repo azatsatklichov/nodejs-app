@@ -7,7 +7,7 @@ abstract class Animal {
 }
 
 //giving a class name is optional
-let Dolphin = class extends Animal {
+let Dolphin = class  extends Animal { // class Dolphin extends Animal 
   swim(): void {
     console.log("swim like " + ` ${this.name}`);
   }
@@ -17,7 +17,7 @@ let myDolphin = new Dolphin("Dolphin");
 myDolphin.swim();
 
 //how to use class expression in extension
-class Sharq extends class {
+class Sharq extends class {  //class with no name, like anonymous class in Java, but not exact one  
   name: string;
 } {
   elasmobranchii: string;

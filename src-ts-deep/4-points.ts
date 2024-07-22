@@ -29,6 +29,7 @@ export class Point2 {
   }
 }
 
+//no field definition 
 export class Point3 {
   constructor(private x?: number, private y?: number) {
     //no need to assign it again
@@ -39,7 +40,7 @@ export class Point3 {
   }
 }
 
-//To get access to private fields
+//To get access to private fields, normal getters and setters 
 export class Point4 {
   constructor(private x?: number, private y?: number) {}
   public plot() {

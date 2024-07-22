@@ -18,18 +18,24 @@ var any1;
 var general: any = 4; //no type inference
 //general.     // NO INTELLISENCE
 general = "document";
+
 general = false;
 general = 123;
 
 console.log(general);
 
 let msg; //implicit ANY
-msg = "abc";
+
+
+msg = "abc"; //make type string 
+
 //1-way cast
 (<string>msg).startsWith("a");
+(<number>msg).toPrecision;
+
 //2-way
 (msg as string).startsWith("a");
-(<number>msg).toPrecision;
+
 
 //for objects
 // var table : HTMLTableElement = document.createElement('table');

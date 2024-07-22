@@ -1,1 +1,0 @@
->tsc <name-of-ts-file>.ts |  node name-of-ts-file.js
