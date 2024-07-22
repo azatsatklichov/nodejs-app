@@ -1,6 +1,6 @@
 interface Mashin {
-  name: string;
-  go(): () => void;
+    name: string;
+    go(): () => void;
 }
 
 //somewhere in app another Mashin interface  
@@ -15,11 +15,11 @@ class Volga implements Mashin {
         throw new Error("Method not implemented.");
     }
     name: string;
-    
-      color: string;
-      stop(): () => void {
-          throw new Error("Method not implemented.");
-      }
+    color: string;
+
+    stop(): () => void {
+        throw new Error("Method not implemented.");
+    }
 }
 
 let v = new Volga(); 

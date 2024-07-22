@@ -7,7 +7,7 @@ abstract class Animal {
 }
 
 //giving a class name is optional
-let Dolphin = class  extends Animal { // class Dolphin extends Animal 
+let Dolphin = class  extends Animal { // class Dolphin extends Animal  
   swim(): void {
     console.log("swim like " + ` ${this.name}`);
   }
