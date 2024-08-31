@@ -1,5 +1,6 @@
 //Declaring Variables with var, let, and const
-//var Versus let
+//var Versus let 
+
 
 function ScopeTest() {
   if (true) {

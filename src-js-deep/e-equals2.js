@@ -2,14 +2,6 @@
 
 
 
-myObj = {"sds":12}
-for (myProp in myObj){
-    if(myObj.hasOwnProperty("sdss")){
-        console.log("--- sddsd")
-    }
-} 
-console.log("sddsd")
-
 
 var a = "JavaScript";
 var b = new String("JavaScript");             
