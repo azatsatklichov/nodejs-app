@@ -54,6 +54,3 @@ let newVeganOption = new VeganHotSauce(false, "Vegan Lite", 2400)
 console.log(newVeganOption)
 console.log(newVeganOption.checkMeatContent())
 
-
-
- 
