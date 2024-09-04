@@ -1,6 +1,16 @@
+
+
+
 //Declaring Variables with var, let, and const
 //var Versus let 
 
+
+/// see also: src-js-deep/d-vars.js 
+
+let xx = 32; //"John Doe";
+//let xx = "sd34.40"; //Cannot redeclare block-scoped variable 'xx'
+xx = "sd34.40"; //xx = 776 
+console.log(xx) //sd34.40
 
 function ScopeTest() {
   if (true) {
@@ -16,3 +26,5 @@ function ScopeTest() {
 }
 //Globally available in the function in which it is declared
 console.log(foo); // error!!
+
+
