@@ -85,3 +85,8 @@ console.log(x === 1); //true // ???
 console.log(typeof NaN); //"number" // NaN is a number??? But...
 console.log(NaN != NaN); //true
 console.log(NaN !== NaN) //true
+
+
+console.log()
+var xc = 6;
+console.log(xc.MAX_VALUE); //no warning, in JAVA you have a compiler error
