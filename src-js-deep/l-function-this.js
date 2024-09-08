@@ -1,9 +1,9 @@
-
 console.log(this) // Window { }
 let words = function (word1, word2) {
 console.log(this) // Window { }
 return word1 + " " + word2
 }
+
 
 /////
 
@@ -35,6 +35,7 @@ words3() // console logs Window { }
  *  it inherits the context from that parent function. This can be seen in the following example:
  */
 
+console.log('==========================')
 "use strict"
 let contextualFunction = function() {
 let words = () => {

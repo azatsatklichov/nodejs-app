@@ -1,7 +1,6 @@
 var x;
 var y=null;
  
-
 console.log('------------------------==============-------------');
 console.log(typeof x); 
 console.log(typeof y);   

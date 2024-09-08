@@ -25,9 +25,10 @@ void function () {
     console.log('What')
 }();
 
-void function what() {
+let und = void function what() {
     console.log('What')
 }();
+console.log(und);
 
 //what();
 

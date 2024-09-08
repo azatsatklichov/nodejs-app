@@ -21,7 +21,7 @@ console.log("3" - "2");//1
 var x = 100 / "Apple";
 
 //comment below line to run all successful in script 
-console.logd(100 / "Apple"); //NaN
+console.log(100 / "Apple"); //NaN
 
 console.log(isNaN(x)); //true
 console.log(100 / "10"); //coercion OK
@@ -46,8 +46,8 @@ console.log(x * y); //Infinity:    Infinity * Infinity = -Infinity
 console.log(x / y); //Infinity:    Infinity / Infinity = NaN  (undefined)
 
 
-console.log(Number(true));
-console.log(Number(false));
+console.log(Number(true));//1
+console.log(Number(false));//0
 console.log(Number("10"));
 console.log(Number("  10"));
 console.log(Number("10  "));
@@ -56,6 +56,7 @@ console.log(Number("10.33"));
 console.log(Number("10,33"));
 console.log(Number("10 33"));
 console.log(Number("John"));
+console.log('---')
 
 console.log(Number(new Date("2017-09-30")));
 console.log(parseFloat("years 10"));

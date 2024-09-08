@@ -9,8 +9,6 @@ var a = 10;
 /*eslint-env es6*/
 
  
-
- 
 const a = "I'm a string primitive"; 
  
 console.log(a  instanceof String); //returns false 

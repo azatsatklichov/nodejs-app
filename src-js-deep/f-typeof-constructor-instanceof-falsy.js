@@ -1,6 +1,7 @@
 
 console.log("----- typeof ---");
 console.log( typeof 0 ); // "number"
+console.log( typeof Number() ); // “number”, no new operator
 console.log( typeof new Number() ); // "object"
 console.log( typeof Infinity ); //"number"
 console.log( typeof NaN ); // "number"
