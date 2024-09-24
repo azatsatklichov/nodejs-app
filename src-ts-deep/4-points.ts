@@ -4,6 +4,7 @@ export class Point1 {
   y: number;
   //desc?: string;
 
+  //you can not have multiple constructors, but optional fields or factory methods can be used as an alternative 
   constructor(x?: number, y?: number) {
     this.x = x;
     this.y = y;
@@ -55,6 +56,7 @@ export class Point4 {
     this.x = x;
   }
 }
+
 
 //Using concept of properties
 export class Point5 {

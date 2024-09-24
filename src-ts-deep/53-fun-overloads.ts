@@ -1,6 +1,6 @@
 //you can not just DO overload functions as in JAVA 
 function getId(user: string) {}
-function getId(user: string) {}
+function getId(user: number) {}
 
 
 //define overloaded functions

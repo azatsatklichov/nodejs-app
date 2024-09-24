@@ -5,6 +5,16 @@ return word1 + " " + word2
 }
 
 
+function logThis() { 
+    console.log(this);
+  }
+  
+[1, 2, 3].forEach(logThis); // undefined, undefined, undefined
+
+
+
+
+
 /////
 
 "use strict"
@@ -13,6 +23,13 @@ let words2 = function (word1, word2) {
 console.log(this) // undefined
 return word1 + " " + word2
 }
+
+function logThis() {
+    "use strict";
+    console.log(this);
+  }
+  
+  [1, 2, 3].forEach(logThis); // undefined, undefined, undefined
 
 /**
  Arrow Notation Functionality with this

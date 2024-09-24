@@ -2,7 +2,7 @@
 <html>
 <body>
 	<h1>
-		The JavaScript <i>this</i> Keyword
+		The JavaScript <i><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a></i> Keyword
 	</h1>
 	<pre>
 What is this?
@@ -94,7 +94,7 @@ Methods like call(), and apply() can refer this to any object.
 	<script>
 		"use strict";
 		document.getElementById("demoe").innerHTML = myFunction();
-		document.getElementById("demoe2").innerHTML = myFunction().history;
+		document.getElementById("demoe2").innerHTML = myFunction().history
 		function myFunction() {
 			return this;
 		}
@@ -150,7 +150,26 @@ Methods like call(), and apply() can refer this to any object.
 	(person) object.
 
 
+	<h2>
+		<i>this</i> in Object Method Binding  -  this in a Method, this in an ARROW method
+	</h2>
 
+	<p id="demoddd"></p>
+	<p id="demoddd2"></p> 
+
+	<script>
+		var foo = 5;
+		// Create an object:
+		let obj = {
+		gg:4,
+		func1: function () { return this; }, //shows this object
+		func2: () => { return this; }   //shows global object 
+	    }
+		// Display data from the object:
+		document.getElementById("demoddd").innerHTML = obj.func1(); // obj is left of the dot, so this is obj
+		document.getElementById("demoddd2").innerHTML = obj.func2(); // arrow function don't have their own this
+	</script> 
+	 
 
 </body>
 </html>

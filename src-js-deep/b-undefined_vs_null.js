@@ -26,7 +26,22 @@ if (value === undefined) {
   console.log("I am undefined"); //I am undefined
 }
  
-
-
-
-
+console.log()
+//not object 
+myObj = null;
+//at least an object with undefined value  
+var myObj2; //or = undefined;
+if (myObj === undefined) {
+  console.log("I am an object"); 
+}
+if (myObj2 === undefined) {
+  console.log("I am an object2"); 
+}
+console.log(myObj)
+console.log(myObj2)
+ 
+//you see, !myObj
+if(!myObj && typeof myObj  === 'object'){
+  console.log('I am obj');
+}
+ 

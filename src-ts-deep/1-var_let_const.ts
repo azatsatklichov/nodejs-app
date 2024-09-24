@@ -14,9 +14,7 @@ console.log(xx) //sd34.40
 
 function ScopeTest() {
   if (true) {
-    /*
- Globally available in the function in which it is declared
- */
+    //Globally available in the function in which it is declared
     var foo = "use anywhere";
     let bar = "use in this block";
     // do some more stuff
@@ -24,7 +22,7 @@ function ScopeTest() {
   console.log(foo); // works!!
   console.log(bar); // error!!
 }
-//Globally available in the function in which it is declared
+//Globally available in the function in which it is declared in case automatic 
 console.log(foo); // error!!
 
 

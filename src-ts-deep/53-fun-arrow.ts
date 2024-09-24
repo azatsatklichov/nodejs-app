@@ -16,6 +16,12 @@ var myFun2 = function (x?: number, y: string = "I am default value") {
   return x + y;
 };
 
+
+//un-used parameters, no-complain with warning 
+var myFun22x = function (m: string, m2:string) {
+  return "Ola";
+};
+
 var myFun22 = function (
   _m: string,
   x?: number,
@@ -24,6 +30,10 @@ var myFun22 = function (
   console.log("s");
   return x + y;
 };
+
+
+
+
 
 var myArrFun = (x: number, y: number) => x * y;
 
@@ -59,7 +69,7 @@ function MyBook() {
 }
 
 function MyBook2() {
-  //just use this directly in arrow function
+  //just use this directly in arrow f unction
   this.author = "matem";
   setInterval(() => {
     console.log(this.author);

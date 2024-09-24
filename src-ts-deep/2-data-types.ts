@@ -6,6 +6,7 @@ var num3: number; //safe via Type Annotation
 var num2: number = 23; //Type Annotation and the Value
 //safe via type inference
 //num1 = "d";
+num1 = "sds"; //not assignable to number 
 
 var num4 = num2 + num1; //Type inference (number)
 var str1 = num2 + "" + num1; //Type inference (string)

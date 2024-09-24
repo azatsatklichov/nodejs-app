@@ -6,8 +6,9 @@ module.exports.foo = 5;
 console.log(this);  // { foo:5 }
 
 let obj = {
-    func1: function () { console.log(this); },
-    func2: () => { console.log(this); }
+    gg:4,
+    func1: function () { console.log(this); }, //shows this object
+    func2: () => { console.log(this); }   //shows global object 
 }
 
 obj.func1();  // obj is left of the dot, so this is obj
@@ -18,10 +19,10 @@ console.log('==========');
 
 
 var a = this; // "this" is an empty object
-this.anObject = {name:"An object"};
+this.anObject = {name:"eeeee An object"};
 
 var aFunction = function() {
-    var innerThis = this; // "this" is node global object
+    var innerThis = this; // "this" is NODE GLOBAL object
     console.log(innerThis);
     console.log('----------');
 };

@@ -16,7 +16,7 @@ let Dolphin = class  extends Animal { // class Dolphin extends Animal
 let myDolphin = new Dolphin("Dolphin");
 myDolphin.swim();
 
-//how to use class expression in extension
+//how to use class expression in extension, see TWO curly braces {} {}
 class Sharq extends class {  //class with no name, like anonymous class in Java, but not exact one  
   name: string;
 } {
