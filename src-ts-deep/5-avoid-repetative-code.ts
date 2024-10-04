@@ -241,3 +241,42 @@ class UIWidget {
     constructor(init: Options) { /* ... */ }
     update(options: Partial<Options>) { /* ... */ }
 }
+
+/**
+ * If the index clause in your mapped type is of the form K in keyof T or a
+few variants on it, then TypeScript treats it as a “homomorphic” mapped
+type. This means that modifiers (like readonly and ? for optional) and
+documentation are transferred over to the new type:
+ */
+
+
+//generics
+function createPair<S, T>(v1: S, v2: T): [S, T] {
+    return [v1, v2];
+}
+console.log(createPair<string, number>('hello', 42)); // ['hello', 42]
+console.log(createPair<number, string>(63, 'ola')); // [63, 'ola']
+
+
+class NamedValue<T> {
+    private _value: T | undefined;
+    constructor(private name: string) {
+
+    }
+    public setValue(value: T) {
+        this._value = value;
+    }
+    public getValue(): T | undefined {
+        return this._value;
+    }
+    public toString(): string {
+        return `${this.name}: ${this._value}`;
+    }
+}
+
+let value = new NamedValue<number>('myNumber');
+value.setValue(10);
+console.log(value.toString()); // myNumber: 10
+
+
+
