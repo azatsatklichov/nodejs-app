@@ -1,3 +1,7 @@
+const n1:never = 12;
+const n2:never = true;
+
+
 /**
  * There are also errors of omission: times when you should do something
 but you don’t. While TypeScript won’t always catch these on its own,
@@ -69,7 +73,7 @@ the empty set. When we’ve covered all the possible types of Shape, this is
 all that’s left. If we missed a case, then the type would be something other
 than never:
  */
-function processShape3(shape: Shape) {
+function processShape3(shape: Shape2) {
     switch (shape.type) {
         case 'box': break;
         case 'circle': break;
@@ -87,7 +91,7 @@ omission into a type error:
 function assertUnreachable(value: never): never {
     throw new Error(`Missed a case! ${value}`);
 }
-function drawShape4(shape: Shape, context: CanvasRenderingContext2D) {
+function drawShape4(shape: Shape2, context: CanvasRenderingContext2D) {
     switch (shape.type) {
         case 'box':
             context.rect(...shape.topLeft, ...shape.size);

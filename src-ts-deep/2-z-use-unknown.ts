@@ -19,6 +19,7 @@ const book: Book = parseYAML(`
     name: Wuthering Heights
     author: Emily Brontë
     `);
+   console.log(book.title); // YES error
 
 
 /**
@@ -29,19 +30,19 @@ const book2 = parseYAML(`
 name: Jane Eyre
 author: Charlotte Brontë
 `);
-console.log(book.title); // No error, logs "undefined" at runtime
+console.log(book2.title); // No error, logs "undefined" at runtime
 book2('read'); // No error, throws "book is not a function" at runtime
 
 //A safer alternative would be to have parseYAML return an unknown type:
 function safeParseYAML(yaml: string): unknown {
     return parseYAML(yaml);
 }
-const book = safeParseYAML(`
+const book3 = safeParseYAML(`
     name: The Tenant of Wildfell Hall
     author: Anne Brontë
     `);
-console.log(book.title); //'book' is of type 'unknown'
-book("read"); // Error: 'book' is of type 'unknown'
+console.log(book3.title); //'book' is of type 'unknown'
+book3("read"); // Error: 'book' is of type 'unknown'
 
 /**
  * unknown can also be used instead of any in “double assertions”:

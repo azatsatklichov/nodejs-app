@@ -18,8 +18,16 @@ function calculateAge(birthDate: Date): number {
     return 1; //tbd
 }
 
-let birthDate: any = '1990-01-19';
+let birthDate: any = '19e90-01-19';
 calculateAge(birthDate); // OK
+
+let person1 = {name: "Oli", age:12};
+person1. //has autocompletion
+
+
+let person2: any = {name: "Oli", age:12};
+person2. //no such 
+ 
 
 
 //any Types Mask Bugs When You Refactor Code

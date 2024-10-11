@@ -17,7 +17,7 @@ console.log(str1);
 //TS Dynamic typing
 var any1;
 var general: any = 4; //no type inference
-//general.     // NO INTELLISENCE
+//general.     // NO INTELLISENCE, try control space
 general = "document";
 
 general = false;
@@ -26,12 +26,11 @@ general = 123;
 console.log(general);
 
 let msg; //implicit ANY
-
-
-msg = "abc"; //make type string 
-
+msg = "abc"; //NO  SMARTNESS
+ 
 //1-way cast
-(<string>msg).startsWith("a");
+(<string>msg).startsWith("a"); //you see, already autocompletion 
+//if msg is number
 (<number>msg).toPrecision;
 
 //2-way
