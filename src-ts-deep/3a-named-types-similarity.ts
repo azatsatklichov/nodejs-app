@@ -12,12 +12,20 @@ interface IState {
     capital: string;
 }
 
-const wyoming: TState = {
+const s1: TState = {
     name: 'Wyoming',
     capital: 'Cheyenne',
     population: 578_000
     // ~~~~~~~ Object literal may only specify known properties,
     // and 'population' does not exist in type 'TState'
+};
+
+const s2: IState = {
+    name: 'Wyoming',
+    capital: 'Cheyenne',
+    population: 578_000
+    // ~~~~~~~ Object literal may only specify known properties,
+    // and 'population' does not exist in type 'IState'
 };
 
 
@@ -35,8 +43,8 @@ interface IFn {
 type TFnAlt = {
     (x: number): string;
 };
-const toStrT: TFn = x => '' + x; // OK
-const toStrI: IFn = x => '' + x; // OK
+const toStrT: TFn = x => '' + x; toStrT(343); // OK
+const toStrI: IFn = x => '' + x; toStrI(341); // OK
 const toStrTAlt: TFnAlt = x => '' + x; // OK
 
 

@@ -33,6 +33,8 @@ author: Charlotte Brontë
 console.log(book2.title); // No error, logs "undefined" at runtime
 book2('read'); // No error, throws "book is not a function" at runtime
 
+
+
 //A safer alternative would be to have parseYAML return an unknown type:
 function safeParseYAML(yaml: string): unknown {
     return parseYAML(yaml);

@@ -129,7 +129,7 @@ interface State {
     recentFiles: string[];
     pageContents: string;
 }
-interface TopNavState {
+interface TopNavState2 {
     userId: string;
     pageTitle: string;
     recentFiles: string[];
@@ -142,7 +142,7 @@ keep a single interface defining the state for the entire app.
  */
 
 //You can remove duplication in the types of the properties by indexing into State:
-interface TopNavState2 {
+interface TopNavState3 {
     userId: State['userId'];
     pageTitle: State['pageTitle'];
     recentFiles: State['recentFiles'];
@@ -156,7 +156,7 @@ better with a mapped type:
 Mousing over TopNavState, you see exactly the same as the previous one
 
  */
-type TopNavState3 = {
+type TopNavState4 = {
     [K in 'userId' | 'pageTitle' | 'recentFiles']: State[K]
 };
 

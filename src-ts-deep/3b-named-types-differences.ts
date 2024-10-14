@@ -36,6 +36,8 @@ name: string;
 age: string;
 }
 type TPerson = Person & { age: number; }; // no error, unusable type
+//const t:TPerson = {name:"ola", age:12}; Type 'number' is not assignable to type 'never'
+
 interface IPerson extends Person {
     // ~~~~~~~ Interface 'IPerson' incorrectly extends interface 'Person'.
     // Types of property 'age' are incompatible.

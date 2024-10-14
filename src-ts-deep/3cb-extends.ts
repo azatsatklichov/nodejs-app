@@ -48,7 +48,7 @@ Vector1D (in the context of classes, you’d say “subclass”).
 interface Vector1D { x: number; }
 interface Vector2D extends Vector1D { y: number; }
 interface Vector3D extends Vector2D { z: number; }
-
+    
 
 /**
  * Think of “extends,” “assignable to,” and “subtype of” as synonyms for
