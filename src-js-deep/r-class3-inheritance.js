@@ -1,7 +1,7 @@
 class HotSauce {
     // Fields here are added to this, so they are available
     // via this.units and this.maxHotness in methods
-    units = 'scoville'
+    units = 'gram'
     maxHotness = 20000000
     constructor(name, hotness) {
         // We can assign arguments from new instances of
@@ -42,7 +42,7 @@ class VeganHotSauce extends HotSauce {
          that’s because units are not on the prototype of VeganHotSauce.
          */
         if (this.meat) {
-            return "this is not vegan.. but " + super.getName()
+            return "this is not vegan.. but " + super.getName() 
         }
         else {
             return "no meat detected.. and " + super.getName()

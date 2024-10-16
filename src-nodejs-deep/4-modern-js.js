@@ -234,6 +234,12 @@ const html = `
 
 console.log(html);
  
+const nme = 'Yu';
+const greeting = `Hello, ${nme}!`;
+console.log(greeting); // "Hello, Yu!"
+
+
+
 
 //DYNAMIC PROPERTIES
 const dyno = "dynamo";

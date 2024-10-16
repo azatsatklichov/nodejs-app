@@ -18,7 +18,7 @@ myMap3.set(() => { return true }, "value")
 console.log(myMap3) // Map(1) { [Function (anonymous)] => 'value' }
 
 let myMap4 = new Map()
-let someArray = [ 1, 2 ]
+let someArray = [1, 2]
 myMap4.set(someArray, "value")
 //To retrieve the someArray entry, we reference the variable, someArray:
 const c = myMap4.get(someArray) // value
@@ -38,15 +38,39 @@ accessing them relies solely on get(). This makes them much more limited than ma
  You can create a WeakMap in the same way as a map, but by using the WeakMap constructor instead:
  */
 let myMap5 = new WeakMap()
-let someArray5 = [ 1, 2 ]
+let someArray5 = [1, 2]
 myMap5.set(someArray5, "value")
 
 
 let myMapOne = new Map()
 myMapOne.set("key", "value")
 let myMapTwo = new Map()
-myMapTwo.set("secondKey", "value")
+myMapTwo.set("secondKey", "valueZ")
 myMapTwo.set("key", "value2")
 // Map{2} {4, 5}
 let bigMap = new Map([...myMapOne, ...myMapTwo])
 console.log(bigMap) // Map(2) {'key' => 'value', 'secondKey' => 'value'}
+console.log(bigMap.get('key')) //value2
+
+console.log('----------')
+//iterating 
+for (let key of bigMap.keys()) {
+    console.log(key) //key, secondKey
+}
+
+for (let value of bigMap.values()) {
+    console.log(value) //value2, valueZ
+}
+
+for (let [key, value] of bigMap.entries()) {
+    console.log(key, value) //[key value2], [secondKey valueZ]
+}
+
+//We can also use the forEach method:
+
+bigMap.forEach((value, key) => {
+    console.log(key, value); //[key value2], [secondKey valueZ]
+})
+
+
+ 
