@@ -1,6 +1,3 @@
-
-
-
 //Declaring Variables with var, let, and const
 //var Versus let 
 
@@ -24,4 +21,3 @@ function ScopeTest() {
 }
 //Globally available in the function in which it is declared in case automatic 
 console.log(foo); // error!!
-

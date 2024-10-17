@@ -20,7 +20,7 @@ console.log(b);
 var l = 'hello';
 l = 1234; //Type 'number' is not assignable to type 'string'.ts(2322)
 console.log(l); //1234
-function calculateArea(shape) {
+function calculateArea22(shape) {
     if (shape.kind === 'rectangle') {
         return shape.width * shape.height;
         // ^? (parameter) shape: Rectangle
@@ -30,3 +30,12 @@ function calculateArea(shape) {
         // ^? (parameter) shape: Square
     }
 }
+
+///output 
+/**
+ * 23
+23
+7
+12
+1234
+ */

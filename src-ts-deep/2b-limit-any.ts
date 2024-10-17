@@ -1,25 +1,62 @@
 //e.g. no type safety with any 
-var ageInYears;
+
+let ageInYears: number;
 //ageInYears = '12';
 // ~~~~~~~ Type 'string' is not assignable to type 'number'.
-ageInYears = '12'; // OK
+ageInYears = '12' as any; // OK
+
 //calc age  after one year - chaos 
 ageInYears += 1; // OK; at runtime, ageInYears is now "121"
-console.log(ageInYears);
+console.log(ageInYears)
+
+
 ///e.g. breaks contract 
-function calculateAge(birthDate) {
-    console.log(birthDate);
+
+function calculateAge(birthDate: Date): number {
+    console.log(birthDate)
     return 1; //tbd
 }
-var birthDate = '19e90-01-19';
+
+let birthDate: any = '19e90-01-19';
 calculateAge(birthDate); // OK
+
+let person1 = {name: "Oli", age:12};
+person1. //has autocompletion
+
+
+let person2: any = {name: "Oli", age:12};
+person2. //no such 
+ 
+
+
+//any Types Mask Bugs When You Refactor Code
+/**
+ * Suppose you’re building a web application in which users can select some
+sort of item. One of your components might have an onSelectItem
+callback. Writing a type for an item seems like a hassle, so you just use any
+as a stand-in:
+ */
+interface ComponentProps {
+    onSelectItem: (item: any) => void;
+}
+
 //Here’s code that manages that component:
-function renderSelector(props) { }
-var selectedId = 0;
-function handleSelectItem(item) {
+function renderSelector(props: ComponentProps) { /* ... */ }
+let selectedId: number = 0;
+function handleSelectItem(item: any) {
     selectedId = item.id;
 }
-renderSelector({ onSelectItem: handleSelectItem });
+
+renderSelector({onSelectItem: handleSelectItem});
+
+/**
+ * Later you rework the selector in a way that makes it harder to pass the
+whole item object through to onSelectItem. But that’s no big deal since
+you just need the ID. You change the signature in ComponentProps:
+ */
+interface ComponentProps2 {
+onSelectItem: (id: number) => void;
+}
 /**
  * You update the component and everything passes the type checker. Victory!
 … or is it? handleSelectItem takes an any parameter, so it’s just as happy
@@ -27,6 +64,7 @@ with an item as it is with an ID. It produces a runtime exception, despite
 passing the type checker. Had you used a more specific type, this would
 have been caught by the type checker.
  */
+
 //any Hides Your Type Design
 /**
  * The type definition for complex objects, like your application state, can get
@@ -42,6 +80,8 @@ design is at all. If you ask a coworker to review a change, they’ll have to
 reconstruct whether and how you changed the application state. Better to
 write it out for everyone to see.
  */
+
+
 //* any Undermines Confidence in the Type System
 /**
  
@@ -59,3 +99,5 @@ information in your head. TypeScript will keep track of it for you.
 For the times when you must use any, there are better and worse ways to do
 it. For much more on how to limit the downsides of any, see Chapter 5.
  */
+
+ 
