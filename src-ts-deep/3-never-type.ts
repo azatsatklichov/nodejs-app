@@ -1,6 +1,13 @@
 const n1:never = 12;
 const n2:never = true;
 
+//with universal type possible
+const n12:unknown = 12;
+const n22:unknown = true;
+
+//or any
+const n13:any = 12;
+const n23:any = true;
 
 /**
  * There are also errors of omission: times when you should do something
@@ -46,11 +53,25 @@ interface Line {
 type Shape2 = Box | Circle | Line;
 
 /**
+ * 
  * There are no type errors, but this change has introduced a bug: drawShape
 will silently ignore any line shapes. 
 
 This is an error of omission. 
+ 
+ */
+function drawShapeErrorOmission(shape: Shape2, context: CanvasRenderingContext2D) {
+    switch (shape.type) {
+        case 'box':
+            context.rect(...shape.topLeft, ...shape.size);
+            break;
+        case 'circle':
+            context.arc(...shape.center, shape.radius, 0, 2 * Math.PI);
+            break;
+    }
+}
 
+/**
 How can
 we get TypeScript to catch this kind of mistake?
 If you look at the type of shape after an exhaustive switch statement,
@@ -60,7 +81,7 @@ function processShape2(shape: Shape2) {
     switch (shape.type) {
         case 'box': break;
         case 'circle': break;
-        case 'line': break;
+        case 'line': break; //no complain
         default:
             shape
         // ^? (parameter) shape: never
@@ -68,7 +89,7 @@ function processShape2(shape: Shape2) {
 }
 
 /**
- * Recall from Item 7 that the never type is a “bottom” type whose domain is
+ * never type is a “bottom” type whose domain is
 the empty set. When we’ve covered all the possible types of Shape, this is
 all that’s left. If we missed a case, then the type would be something other
 than never:
@@ -110,7 +131,7 @@ function drawShape4(shape: Shape2, context: CanvasRenderingContext2D) {
  * We’ll get into the details of assertUnreachable momentarily, but first let’s
 fix the error by covering the missing case:
  */
-function drawShape5(shape: Shape, context: CanvasRenderingContext2D) {
+function drawShape5(shape: Shape2, context: CanvasRenderingContext2D) {
     switch (shape.type) {
         case 'box':
             context.rect(...shape.topLeft, ...shape.size);

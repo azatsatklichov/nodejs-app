@@ -14,11 +14,21 @@ function calculateAge(birthDate) {
 var birthDate = '19e90-01-19';
 calculateAge(birthDate); // OK
 var person1 = { name: "Oli", age: 12 };
-person1.
-; //has autocompletion
+//person1. //has autocompletion
 var person2 = { name: "Oli", age: 12 };
-person2.
-; //no such 
+//person2. //no such
+var msg; //implicit ANY, no INTELLISENCE
+//bad experience, like repeating VAR experience 
+msg = false; //no INTELLISENCE
+msg = 123; //no INTELLISENCE
+msg = "abc"; //no INTELLISENCE
+//1-way cast
+msg.startsWith("a");
+console.log(msg.startsWith("a"));
+//(<number>msg).toFixed(); //will be undefined - Casting doesn't actually change the type of the data within the variable. See TS-Casting
+console.log(msg.toFixed);
+//2-way
+msg.startsWith("a");
 //Here’s code that manages that component:
 function renderSelector(props) { }
 var selectedId = 0;

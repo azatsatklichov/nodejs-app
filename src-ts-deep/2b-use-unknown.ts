@@ -46,9 +46,20 @@ const book3 = safeParseYAML(`
 console.log(book3.title); //'book' is of type 'unknown'
 book3("read"); // Error: 'book' is of type 'unknown'
 
+console.log((book3 as Book).title); //Property 'title' does not exist on type 'Book'.
+console.log((book3 as Book).author); 
+
+let x3:unknown = '9';
+console.log((x3 as number).toExponential); //undefined, since number has no length, BUT no error shown
+console.log((x3 as string).length); //1
+
+
 /**
  * unknown can also be used instead of any in “double assertions”:
  */
 declare const foo: Foo;
 let barAny = foo as any as Bar;
 let barUnk = foo as unknown as Bar;
+
+class Foo{}
+class Bar {}

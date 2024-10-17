@@ -53,3 +53,11 @@ function calculateArea22(shape: Shape22) {
         // ^? (parameter) shape: Square
     }
 }
+
+/**
+ * 23
+23
+7
+12
+1234
+ */

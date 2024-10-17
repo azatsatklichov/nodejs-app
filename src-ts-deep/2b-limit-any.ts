@@ -21,12 +21,27 @@ let birthDate: any = '19e90-01-19';
 calculateAge(birthDate); // OK
 
 let person1 = {name: "Oli", age:12};
-person1. //has autocompletion
+//person1. //has autocompletion
 
 
 let person2: any = {name: "Oli", age:12};
-person2. //no such 
+//person2. //no such
  
+let msg; //implicit ANY, no INTELLISENCE
+//bad experience, like repeating VAR experience 
+msg = false; //no INTELLISENCE
+msg = 123; //no INTELLISENCE
+msg = "abc"; //no INTELLISENCE
+
+//1-way cast
+(<string>msg).startsWith("a");
+console.log((<string>msg).startsWith("a"));
+//(<number>msg).toFixed(); //TypeError: msg.toFixed is not a functio - Casting doesn't actually change the type of the data within the variable. See TS-Casting
+console.log((<number>msg).toFixed); //undefined
+//2-way
+(msg as string).startsWith("a");
+
+
 
 
 //any Types Mask Bugs When You Refactor Code

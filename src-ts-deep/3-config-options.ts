@@ -5,7 +5,7 @@ function add(a, b) {
     return a + b;
 } 
 const xx = add(10, null);
-console.log(xx)
+console.log(xx) //10
 
 /**
  * You can set flag via command line or tsconfig.json

@@ -36,7 +36,7 @@ interface Album2 {
     recordingType: RecordingType;
 }
 
-const kindOfBlue2: Album = {
+const kindOfBlue2: Album2 = {
     artist: 'Miles Davis',
     title: 'Kind of Blue',
     releaseDate: new Date('1959-08-17'),
