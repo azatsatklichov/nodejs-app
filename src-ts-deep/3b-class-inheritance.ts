@@ -94,6 +94,7 @@ let employee = new Employee('Mehul',
 
 console.log(employee.displayInfo());
 
+
 //now field inheritance - define FIELD/STATE in Interface (bot possible in JAVA)
 interface OnlyInTS{
     ady:string,
@@ -103,7 +104,7 @@ interface OnlyInTS{
 
 const v1: OnlyInTS = {
     ady: "Oraz", 
-    state: "Boydak",
+    state: "boydak",
     info() {
         return this.ady+" - "+ this.state
     }
@@ -117,5 +118,6 @@ const v2: OnlyInTS = {
     }
 }
 
-console.log(v1.info()) //Oraz - Boydak
+//same TYPE different implementations 
+console.log(v1.info()) //Oraz - boydak
 console.log(v2.info())//Alym - married

@@ -1,9 +1,12 @@
-//Finally, we can create static initializers to run upon class initialization. This lets us run some functionality when calling static properties or methods even though static methods cannot accept arguments. In the following example, we update the author static variable to “Hello World” upon class initialization:
+//Finally, we can create static initializers to run upon class initialization. 
+//This lets us run some functionality when calling static properties 
+//or methods even though static methods cannot accept arguments.
+// In the following example, we update the author static variable to “Hello World” upon class initialization:
 let myUtlClass = class {
 static className = "Utility Functions"
 static author = "Some Author"
 static {
-this.author = "Hello World"
+    this.author = "Hello World"
 }
 static classDetails() {
     console.log('initialized')

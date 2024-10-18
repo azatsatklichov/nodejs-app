@@ -29,8 +29,8 @@ myFun3(2, 3);
 myFun3(2, 55, 453);
 
 
-//No warning for un-used variables
-function fun(_variable: string) {
-       console.log('Just see, no warning even variable not used' );
+//No warningfor un-used variables
+function fun(_variable:string){
+  console.log('Justsee,nowarningevenvariablenotused');
 }
   

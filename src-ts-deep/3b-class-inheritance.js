@@ -126,5 +126,5 @@ var v2 = {
         return this.ady + " - " + this.state;
     }
 };
-console.log(v1.info());
-console.log(v2.info());
+console.log(v1.info()); //Oraz - Boydak
+console.log(v2.info()); //Alym - married

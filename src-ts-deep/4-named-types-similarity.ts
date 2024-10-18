@@ -35,6 +35,14 @@ interface IDict {
     [key: string]: string;
 }
 
+const idxT: TDict = { "typeK": "OO Type" }
+idxT["interfaceK"] = "Experience from T4Z" //RECORDS
+const idxI: IDict = { "interfaceK": "OO Type" }
+//or
+idxI["interfaceK"] = "Experience from T4Z" //RECORDS
+
+
+
 //You can also define function types with either:
 type TFn = (x: number) => string;
 interface IFn {
@@ -43,17 +51,19 @@ interface IFn {
 type TFnAlt = {
     (x: number): string;
 };
-const toStrT: TFn = x => '' + x; toStrT(343); // OK
-const toStrI: IFn = x => '' + x; toStrI(341); // OK
+const toStrT: TFn = x => '' + x;
+toStrT(343); // OK
+const toStrI: IFn = x => '' + x;
+toStrI(341); // OK
 const toStrTAlt: TFnAlt = x => '' + x; // OK
 
 
 //Both type aliases and interfaces can be generic:
 type TBox<T> = {
-value: T;
+    value: T;
 };
 interface IBox<T> {
-value: T;
+    value: T;
 }
 
 /**
@@ -70,15 +80,22 @@ type TStateWithPop = IState & { population: number; };
     extend object types that could have been defined with interface (even if
     you happened to define them with type). You can’t extend a union type, for
     example. If you want to do that, you’ll need to use type and &.
- */  
+ */
 
 
 //A class can implement either an interface or a simple type:
 class StateT implements TState {
-name: string = '';
-capital: string = '';
+    name: string = '';
+    capital: string = '';
 }
+
+const clT = new StateT();
+clT.capital;
+
 class StateI implements IState {
-name: string = '';
-capital: string = '';
+    name: string = '';
+    capital: string = '';
 }
+
+const clI = new StateI();
+clI.capital;

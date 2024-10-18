@@ -11,8 +11,6 @@ const p:PersonSpan = {name:'Alan', birth: new Date()};
 //p. ///like declaration merging,... 
 
 
-
-
 type PersonUnion = Person | Lifespan;
 const u:PersonUnion =  {birth: new Date()};
 //u.
@@ -56,3 +54,19 @@ keyof (A&B) = (keyof A) | (keyof B)
 keyof (A|B) = (keyof A) & (keyof B)
  */
  
+
+class Mobile { //... 
+}
+class Tablet { //... 
+}        
+
+
+//union types used for parameters and return types
+function getReport1(id: number | string) {
+        //TBD         
+} 
+
+//intersection types
+function getReport2(id: Mobile & Tablet) { //all properties must match
+        //TBD         
+}

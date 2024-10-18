@@ -28,7 +28,7 @@ console.log(r);
 interface Vector3D {
     x: number;
     y: number;
-    z: number;
+    z: number;//z?: never;
 }
 
 //and write a function to normalize them (make their length 1):

@@ -6,6 +6,7 @@ function getId(user: number) {}
 //define overloaded functions
 function getIds(user: string): string[];
 function getIds(active: boolean): string[];
+
 //implementation function
 function getIds(factor: any): string[] {
   if (typeof factor == "string") {

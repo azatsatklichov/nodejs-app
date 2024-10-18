@@ -14,8 +14,7 @@ console.log(str1);
 //var num5:number = num2 + '' + num1; //Type inference (string)
 console.log(str1);
 
-
-
+ 
 const person: {
   name: string;
   born: {
@@ -85,3 +84,39 @@ arr.forEach((str) => {
 2323 Ola 3434
 2323 Ola 3434
  */
+
+//Type Inference TypeScript can infer the type of an array if it has values.
+const numbers2 = [1,2,3];// inferred to type number[]
+numbers2.push(4); // no error 
+// comment line below out to see the successful assignment
+numbers2.push("2"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+let heads: number = numbers2[0]; // no error
+
+
+//////////////
+//TS Dynamic typing
+var any1;
+var general: any = 4; //no type inference
+//general.     // NO INTELLISENCE, try control space
+general = "document";
+
+general = false;
+general = 123;
+
+console.log(general);
+
+let msg; //implicit ANY
+msg = "abc"; //NO  SMARTNESS
+
+//1-way cast
+(<string>msg).startsWith("a"); //you see, already autocompletion 
+//if msg is number
+(<number>msg).toPrecision;
+
+//2-way
+(msg as string).startsWith("a");
+
+
+//for objects
+// var table : HTMLTableElement = document.createElement('table');
+// var table : HTMLTableElement = <HTMLTableElement>document.createElement('table');

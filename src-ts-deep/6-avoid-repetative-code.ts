@@ -89,7 +89,7 @@ interface PersonWithBirthDate extends Person {
 type PersonWithBirthDate2 = Person & { birth: Date };
 
 
-//ore example 
+//more example 
 interface Bird {
     wingspanCm: number;
     weightGrams: number;
@@ -205,6 +205,17 @@ which would give you an interface with a type property:
 type ActionRecord = Pick<Action, 'type'>;
 // ^? type ActionRecord = { type: "save" | "load"; }
 
+
+
+//key-of
+interface Personn { name: string; age: number; } 
+function printPersonProperty(person: Personn, property: keyof Person) {
+    console.log(`${property}: "${person[property]}"`);
+}
+let personn = {name:"Max", age:27};
+printPersonProperty(personn, 'name');// name: "Max“ 
+
+
 /**
  * If you’re defining a class that can be initialized and later updated, the type
 for the parameter to the update method might optionally include most of the
@@ -236,8 +247,15 @@ type OptionsKeys = keyof Options;
 // (equivalent to "width" | "height" | "color" | "label")
 
  */
-type OptionsUpdate = { [k in keyof Options]?: Options[k] };
-class UIWidget {
+type OptionsUpdate2 = { [k in keyof Options]?: Options[k] };
+class UIWidget2 {
+  constructor(init: Options) { /* ... */ }
+  update(options: OptionsUpdate2) { /* ... */ }
+}
+
+
+ 
+class UIWidget3 {
     constructor(init: Options) { /* ... */ }
     update(options: Partial<Options>) { /* ... */ }
 }

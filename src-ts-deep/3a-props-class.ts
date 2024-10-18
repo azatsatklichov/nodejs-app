@@ -1,4 +1,4 @@
-import { Point1, Point2, Point3, Point4, Point5, Point6 } from "./4-points"; //no points.ts
+import { Point1, Point2, Point3, Point4, Point5, Point6 } from "./3a-point-class"; //no points.ts
 
 let p1 = new Point1();
 p1.x = 23;
@@ -43,3 +43,5 @@ console.log(x);
 p6.x = 144;
 console.log(p6.x);
 p6.plot();
+
+

@@ -14,6 +14,14 @@ console.log(sum); // 15
 
 
 
+//Type Inference TypeScript can infer the type of an array if it has values.
+const numbers2z = [1,2,3];// inferred to type number[]
+numbers2z.push(4); // no error 
+// comment line below out to see the successful assignment
+numbers2z.push("2"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
+let head: number = numbers2[0]; // no error
+
+
 
 /**
  * A tuple type combines a set of numerically named properties with the members of an array type.

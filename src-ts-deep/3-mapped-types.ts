@@ -36,8 +36,14 @@ type Features = {
     newUserProfile: () => void;
 };
 
+type Actions = {
+    accelerate: () => void;
+    break: () => void;
+};
+
 //just mouse hover over
 type FeatureOptions = OptionsFlags<Features>;
+type ActionOptions = OptionsFlags<Actions>;
 
 
 /**
@@ -77,3 +83,4 @@ type User = Concrete<MaybeUser>;
 //Key Remapping via 
 //https://www.typescriptlang.org/docs/handbook/2/mapped-types.html
 
+ 

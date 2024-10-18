@@ -50,6 +50,17 @@ remove them
 const date: Readonly<Date> = new Date();
 date.setFullYear(2037); // OK, but mutates date!
 
+
+//you can add
+const myArr2:   Array<string>  = new Array(2);
+myArr2.push('3');
+//you can make it readonly
+const myArr: Readonly<Array<string>> = new Array(2);
+//myArr.push //Property 'push' does not exist on type 'readonly string[]' 
+
+
+ 
+
 /**
  * If you want both a mutable and immutable version of a class, you’ll
 generally need to separate them yourself.
@@ -96,7 +107,7 @@ const numbers2 = [1,2,3];// inferred to type number[]
 numbers2.push(4); // no error 
 // comment line below out to see the successful assignment
 numbers2.push("2"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
-let head: number = numbers2[0]; // no error
+let headz: number = numbers2[0]; // no error
 
 
 //Also, note that you can assign a mutable array to a readonly array, but not vice versa:

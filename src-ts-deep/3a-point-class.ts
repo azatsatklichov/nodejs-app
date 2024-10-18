@@ -12,7 +12,7 @@ export class Point1 {
 
   //plot: () => void;
   plot() {
-    console.log("x=" + this.x + ", y=" + this.y);
+    console.log("Point1: x=" + this.x + ", y=" + this.y);
   }
 }
 
@@ -26,7 +26,7 @@ export class Point2 {
   }
 
   public plot() {
-    console.log("x=" + this.x + ", y=" + this.y);
+    console.log("Point2: x=" + this.x + ", y=" + this.y);
   }
 }
 
@@ -37,7 +37,7 @@ export class Point3 {
   }
   //TS compiler implicitly creates fields and initialize with value from constructor
   public plot() {
-    console.log("x=" + this.x + ", y=" + this.y);
+    console.log("Point3: x=" + this.x + ", y=" + this.y);
   }
 }
 
@@ -45,7 +45,7 @@ export class Point3 {
 export class Point4 {
   constructor(private x?: number, private y?: number) {}
   public plot() {
-    console.log("x=" + this.x + ", y=" + this.y);
+    console.log("Point4: x=" + this.x + ", y=" + this.y);
   }
 
   getX() {
@@ -62,10 +62,10 @@ export class Point4 {
 export class Point5 {
   constructor(private x?: number, private y?: number) {}
   public plot() {
-    console.log("x=" + this.x + ", y=" + this.y);
+    console.log("Point5: x=" + this.x + ", y=" + this.y);
   }
 
-  get X() {
+  get X() { //x clash 
     return this.x;
   }
   get Y() {
@@ -86,7 +86,7 @@ export class Point6 {
   constructor(private _x?: number, private _y?: number) {}
 
   public plot() {
-    console.log("x=" + this._x + ", y=" + this._y);
+    console.log("Point6: x=" + this._x + ", y=" + this._y);
   }
 
   public var(_variable: string) {

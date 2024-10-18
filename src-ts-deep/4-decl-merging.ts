@@ -22,4 +22,5 @@ class Volga implements Mashin {
     }
 }
 
-let v = new Volga(); 
+let v = new Volga();
+v. 

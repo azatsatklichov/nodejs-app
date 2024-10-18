@@ -1,4 +1,15 @@
 
+const cube = (a) =>  a * a * a;
+const html = `
+ <div>
+  ${Math.random()}
+  <br/>
+  ${cube(3)};
+ </div>
+`;
+console.log(html)
+
+
 /**
  When a union is used in the interpolated position, the type is the set of every possible
  string literal that could be represented by each union member:
@@ -13,7 +24,6 @@ type AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`;
  */
 type AllLocaleIDs2 = `${EmailLocaleIDs | FooterLocaleIDs}_id`;
 type Lang = "en" | "ja" | "pt";
-
 type LocaleMessageIDs2 = `${Lang}_${AllLocaleIDs}`;
 
 

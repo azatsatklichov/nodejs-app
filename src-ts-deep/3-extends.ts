@@ -1,13 +1,13 @@
-interface Person {
+interface Person2 {
     name: string;
 }
-interface PersonSpan2 extends Person {
+interface PersonSpan2 extends Person2 {
     birth: Date;
     death?: Date;
 }
 
-const p: PersonSpan2 = { name: "Ole", birth: new Date() }
-//p.
+const pp: PersonSpan2 = { name: "Ole", birth: new Date() }
+//pp.
 
 
 /**

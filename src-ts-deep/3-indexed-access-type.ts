@@ -1,7 +1,7 @@
 //We can use an indexed access type to look up a specific property on another type:
 type Adam = { age: number; name: string; alive: boolean };
 //console.log(Adam["age"]) //'Adam' only refers to a type, but is being used as a value
-type Age = Adam["age"];
+type Age = Adam["age"]; //type Age = number
 
 //The indexing type is itself a type, so we can use unions, keyof, or other types entirely:
 type I1 = Adam["age" | "name"]; //type I1 = string | number
@@ -13,7 +13,6 @@ type I3 = Adam[AliveOrName]; //type I3 = string | boolean
 //You’ll even see an error if you try to index a property that doesn’t exist:
 type I4 = Adam["alma"]; //Property 'alma' does not exist on type 'Adam'
 
-
 /**
  * Another example of indexing with an arbitrary type
  *  is using number to get the type of an array’s elements. 
@@ -22,11 +21,20 @@ type I4 = Adam["alma"]; //Property 'alma' does not exist on type 'Adam'
  */
 const MyArray = [
     { name: "Alice", age: 15 },
+    { boolean: true, age: 15 },
     { name: "Bob", age: 23 },
+    { string: "Indira", date: "2024-18-18" },
     { name: "Eve", age: 38 },
 ];
 
-type PersonA = typeof MyArray[number];
+type PersonA = typeof MyArray[number]; 
+/**
+ * type PersonA = {
+    name: string;
+    age: number;
+}
+ */
+
 type PersonB = {
     name: string;
     age: number;
