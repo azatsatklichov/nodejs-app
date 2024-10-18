@@ -1,3 +1,8 @@
+
+
+console.log(Object.prototype) //[Object: null prototype] {}
+
+
 //This code runs fine, and yet TypeScript flags an error in it. Why?
 const obj = {
     one: 'uno',

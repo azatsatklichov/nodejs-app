@@ -1,3 +1,4 @@
+console.log(Object.prototype);
 //This code runs fine, and yet TypeScript flags an error in it. Why?
 var obj = {
     one: 'uno',
@@ -11,7 +12,7 @@ for (var k in obj) {
     // ~~~~~~ Element implicitly has an 'any' type
     // because type ... has no index signature
 }
-//fix
+//fix - Using a type assertion to get a narrower type for k fixes the issue
 for (var kStr in obj) {
     var k = kStr;
     // ^? const k: "one" | "two" | "three"
