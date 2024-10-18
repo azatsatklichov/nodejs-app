@@ -1,4 +1,4 @@
-import { Category } from './enums';
+import { Category } from './3-enums';
 
 interface Duck {
   walk: () => void;
