@@ -1,7 +1,5 @@
 # nodejs-app
-- Practical Typescript 
+- Best Practices:  Javascript Dos and Donts 
+- Effective Usage of Typescript 
 - Practical  NodeJS
 - VSCode Journey
-- Javascript Dos and Donts  
-
- 
