@@ -20,14 +20,14 @@ from a branch will narrow a variable’s type for the rest of a block
 
 Truthy check
  */
-const elem = document.getElementById('what-time-is-it');
+const elem2 = document.getElementById('what-time-is-it');
 if (!elem) throw new Error('Unable to find #what-time-is-it');
 elem.innerHTML = 'Party Time'.blink();
 
 
 
 //You can also use instanceof:
-function contains(text: string, search: string | RegExp) {
+function contains22(text: string, search: string | RegExp) {
     if (search instanceof RegExp) {
         return !!search.exec(text);
     }

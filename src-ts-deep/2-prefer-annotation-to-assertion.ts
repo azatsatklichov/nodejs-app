@@ -8,7 +8,7 @@ const ole = <Person>{name: 'Bob'};
  
 const alice2: Person = { name: 'Alice', id:3434 };  
 const bob2 = { name: 'Bob', id:3434  } as Person;  
-
+const ole2 = <Person>{};
 
 
 

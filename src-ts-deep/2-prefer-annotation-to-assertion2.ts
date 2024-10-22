@@ -14,9 +14,9 @@ document.querySelector('#myButton')?.addEventListener('click', e => {
      What if a variable’s type includes null but you know from context that this
 isn’t possible? You can use a type assertion to remove null from a type:
  */
-const elNull = document.getElementById('foo');
+const elNulll = document.getElementById('foo');
 // ^? const elNull: HTMLElement | null
-const el = document.getElementById('foo') as HTMLElement;
+const ell = document.getElementById('foo') as HTMLElement;
 // ^? const el: HTMLElement
 
 /**
@@ -28,7 +28,7 @@ interpreted as a type assertion that the value is non-null. This is an
 improvement over as because it allows the non-null part of the type to pass
 through unaltered.
  */
-const el2 = document.getElementById('foo')!; 
+const el22 = document.getElementById('foo')!; 
 
 
 /**

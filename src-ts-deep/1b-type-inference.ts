@@ -15,7 +15,7 @@ console.log(str1);
 console.log(str1);
 
  
-const person: {
+const person1: {
   name: string;
   born: {
     where: string;

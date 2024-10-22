@@ -54,6 +54,8 @@ function calculateArea22(shape: Shape22) {
     }
 }
 
+const sh:Shape22 = {width:232, kind:'square'}
+console.log("Sh = "+calculateArea22(sh));
 /**
  * 23
 23
@@ -61,3 +63,6 @@ function calculateArea22(shape: Shape22) {
 12
 1234
  */
+const person = "Alym";
+const date = new Date();
+`Hello ${person}, today is ${date.toDateString()}!`
