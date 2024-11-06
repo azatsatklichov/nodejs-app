@@ -110,11 +110,11 @@ var Employee = /** @class */ (function (_super) {
     };
     return Employee;
 }(Person));
-var employee = new Employee('Mehul', 'Sharma', 'Web Developer');
+var employee = new Employee('Mehul', 'Sh', 'Web Developer');
 console.log(employee.displayInfo());
 var v1 = {
     ady: "Oraz",
-    state: "Boydak",
+    state: "boydak",
     info: function () {
         return this.ady + " - " + this.state;
     }
@@ -126,5 +126,6 @@ var v2 = {
         return this.ady + " - " + this.state;
     }
 };
-console.log(v1.info()); //Oraz - Boydak
+//same TYPE different implementations 
+console.log(v1.info()); //Oraz - boydak
 console.log(v2.info()); //Alym - married

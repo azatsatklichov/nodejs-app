@@ -36,7 +36,7 @@ name: string;
 age: string;
 }
 type TPerson = Person & { age: number; }; // no error, unusable type
-//const t:TPerson = {name:"ola", age:12}; Type 'number' is not assignable to type 'never'
+//const t:TPerson = {name:"ola", age:12}; //Type 'number' is not assignable to type 'never'
 
 interface IPerson extends Person {
     // ~~~~~~~ Interface 'IPerson' incorrectly extends interface 'Person'.
@@ -58,7 +58,8 @@ type NamedNums = [string, ...number[]];
 
 /**
  * 
- *
+ * declaration merging 
+ * 
 An interface does have some abilities that a type doesn’t, however. One
 of these is that an interface can be augmented. Going back to the State
 example, you could have added a population field in another way:

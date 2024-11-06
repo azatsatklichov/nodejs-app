@@ -20,7 +20,7 @@ export class Point2 {
   private x: number;
   private y: number;
 
-  constructor(x?: number, y?: number) {
+  constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
   }
@@ -32,7 +32,7 @@ export class Point2 {
 
 //no field definition 
 export class Point3 {
-  constructor(private x?: number, private y?: number) {
+  constructor(private x: number, private y: number) {
     //no need to assign it again
   }
   //TS compiler implicitly creates fields and initialize with value from constructor
@@ -43,7 +43,7 @@ export class Point3 {
 
 //To get access to private fields, normal getters and setters 
 export class Point4 {
-  constructor(private x?: number, private y?: number) {}
+  constructor(private x: number, private y: number) {}
   public plot() {
     console.log("Point4: x=" + this.x + ", y=" + this.y);
   }
@@ -60,7 +60,7 @@ export class Point4 {
 
 //Using concept of properties
 export class Point5 {
-  constructor(private x?: number, private y?: number) {}
+  constructor(private x: number, private y: number) {}
   public plot() {
     console.log("Point5: x=" + this.x + ", y=" + this.y);
   }
@@ -83,7 +83,7 @@ export class Point5 {
 
 //Using concept of properties, resolves clashes
 export class Point6 {
-  constructor(private _x?: number, private _y?: number) {}
+  constructor(private _x: number, private _y: number) {}
 
   public plot() {
     console.log("Point6: x=" + this._x + ", y=" + this._y);

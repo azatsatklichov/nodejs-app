@@ -25,7 +25,7 @@ interface Student extends NullableStudent {
 }
 
 const s1: NullableStudent = { name: "Ole", ageYears: null }
-const s2: Student = { name: "Ole", ageYears: null }
+const s2: Student = { name: "Ole", ageYears: 2 }
 //Type 'null' is not assignable to type 'number'.ts(2322)
 
 //If you try to expand the type of ageYears instead, you’ll get an error:

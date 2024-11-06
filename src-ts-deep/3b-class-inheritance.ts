@@ -90,7 +90,7 @@ class Employee extends Person {
     }
 }
 let employee = new Employee('Mehul',
-    'Sharma', 'Web Developer');
+    'Sh', 'Web Developer');
 
 console.log(employee.displayInfo());
 

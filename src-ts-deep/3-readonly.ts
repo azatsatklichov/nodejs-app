@@ -1,8 +1,4 @@
 
-
- 
-
-
 interface Outer {
     inner: {
         x: number;
@@ -56,9 +52,7 @@ const myArr2:   Array<string>  = new Array(2);
 myArr2.push('3');
 //you can make it readonly
 const myArr: Readonly<Array<string>> = new Array(2);
-//myArr.push //Property 'push' does not exist on type 'readonly string[]' 
-
-
+myArr.push //Property 'push' does not exist on type 'readonly string[]' 
  
 
 /**

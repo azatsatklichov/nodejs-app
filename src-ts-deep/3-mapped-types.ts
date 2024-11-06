@@ -1,25 +1,3 @@
-type OnlyBoolsAndHorses = {
-    [key: string]: boolean | Horse;
-};
-
-class Horse { }
-
-const bedew: OnlyBoolsAndHorses = {
-    del: Horse,
-    rodney: false,
-};
-
-const bool: OnlyBoolsAndHorses = {
-    del: true,
-    rodney: false,
-};
-
-const bool3: OnlyBoolsAndHorses = {
-    del: 'string',
-    rodney: false,
-};
-
-
 /**
  * A mapped type is a generic type which uses a union of 
  * PropertyKeys (frequently created via a keyof) to iterate through 
@@ -46,6 +24,7 @@ type FeatureOptions = OptionsFlags<Features>;
 type ActionOptions = OptionsFlags<Actions>;
 
 
+
 /**
  * Mapping Modifiers
 There are two additional modifiers which can be applied during mapping: readonly and ? which affect mutability and optionality respectively.
@@ -55,7 +34,7 @@ You can remove or add these modifiers by prefixing with - or +. If you don’t a
 // Removes 'readonly' attributes from a type's properties
 type CreateMutable<Type> = {
     -readonly [Property in keyof Type]-?: Type[Property];
-    //-readonly [Property in keyof Type]-?: Type[Property];
+    //readonly [Property in keyof Type]+?: Type[Property];
 };
 
 type LockedAccount = {

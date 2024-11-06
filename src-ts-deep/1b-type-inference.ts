@@ -67,7 +67,7 @@ logProduct2(p);
 
 
 //avoid using type annotations everywhere
-const arr: string[] = ['a', 'b', 'c'];
+const arr = ['a', 'b', 'c'];
 arr.forEach((str: string) => {
     //TBD
 });

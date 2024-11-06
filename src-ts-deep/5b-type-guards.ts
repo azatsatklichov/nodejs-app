@@ -21,6 +21,7 @@ if (sport instanceof Football) {
 interface Drink {
   taste: string;
 }
+
 //Java has sealed Classes concept, similar usage, ..
 function isDrink(d: any): d is Drink {
   return (<Drink>d).taste !== undefined;

@@ -61,12 +61,15 @@ console.log(znacka); //new variable
 Extracting values from arrays or objects passed as function parameters can be verbose. Use destructuring in function parameters to directly extract values.
 
  */
-const user = { name: 'Jane', age: 25 };
-console.log(greet(user)); // "Hello, Jane! You are 25 years old."
-
 function greet({ name, age }) {
   return `Hello, ${name}! You are ${age} years old.`;
 }
+
+
+const user = { name: 'Jane', age: 25 };
+console.log(greet(user)); // "Hello, Jane! You are 25 years old."
+
+
 
 //Default Values in Destructuring
 /**
@@ -82,6 +85,7 @@ console.log(age1); //   28
 const users = [
   { id: 1, name: 'Jane' },
   { id: 2, name: 'John' },];
+  
 users.forEach(({ id, name }) => {
   console.log(`User ID: ${id}, User Name: ${name}`);
 });

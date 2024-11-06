@@ -30,12 +30,12 @@ const s2: IState = {
 
 
 //You can use an index signature with both interface and type:
-type TDict = { [key: string]: string };
+type TDict = { [key: string]: string }; 
 interface IDict {
     [key: string]: string;
 }
 
-const idxT: TDict = { "typeK": "OO Type" }
+const idxT: TDict = { "typeK": "OO Type" } 
 idxT["interfaceK"] = "Experience from T4Z" //RECORDS
 const idxI: IDict = { "interfaceK": "OO Type" }
 //or

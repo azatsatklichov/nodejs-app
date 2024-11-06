@@ -23,4 +23,4 @@ class Volga implements Mashin {
 }
 
 let v = new Volga();
-v. 
+v.

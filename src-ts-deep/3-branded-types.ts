@@ -104,10 +104,9 @@ To avoid duplication of the mentioned key you can use a unique symbol
 Also, write the Brand utility into its own file to prevent read access to the property.
   */
 declare const __brand: unique symbol
-type Brand3<B> = { [__brand]: B }
+type Brand3<B> = { [__brand]: B } 
+
 export type Branded<T, B> = T & Brand3<B>
-
-
 type UserID3 = Branded<string, "UserId">
 type PostID3 = Branded<string, "PostId">
 type CommentID3 = Branded<string, "CommentId">

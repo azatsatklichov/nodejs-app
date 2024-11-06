@@ -51,6 +51,7 @@ const tuple: [number, string] = [123, "Broadcom"];
 console.log(tuple[0] + " = " + tuple[1]); //123 = Broadcom
 tuple[0] = 33;
 tuple[1] = "sdd23";
+tuple[1] = "sdd23";
 console.log(tuple[0] + " = " + tuple[1]); //33 = sdd23
 //tuple[2] = 22; //Tuple type '[number, string]' of length '2' has no element at index '2'
 //BUT
