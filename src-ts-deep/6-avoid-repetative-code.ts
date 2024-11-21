@@ -50,17 +50,6 @@ interface Point2D {
 function distance2(a: Point2D, b: Point2D) { /* ... */ }
 
 
-//Duplicated types aren’t always so easy to spot. Sometimes they can be obscured by syntax
-
-//If several functions share the same type signature, for instance
-function get(url: string, opts: Options): Promise<Response> { /* ... */ }
-function post(url: string, opts: Options): Promise<Response> { /* ... */ }
-
-//Then factor out a named type for the signatures
-type HTTPFunction = (url: string, opts: Options) => Promise<Response>;
-const get2: HTTPFunction = (url, opts) => { /* ... */ };
-const post2: HTTPFunction = (url, opts) => { /* ... */ };
-
 
 
 //duplication in types
@@ -121,6 +110,18 @@ interface Mammal extends Vertebrate {
 
 
 
+//Duplicated types aren’t always so easy to spot. Sometimes they can be obscured by syntax
+
+//If several functions share the same type signature, for instance
+function get(url: string, opts: Options): Promise<Response> { /* ... */ }
+function post(url: string, opts: Options): Promise<Response> { /* ... */ }
+
+//Then factor out a named type for the signatures
+type HTTPFunction = (url: string, opts: Options) => Promise<Response>;
+const get2: HTTPFunction = (url, opts) => { /* ... */ };
+const post2: HTTPFunction = (url, opts) => { /* ... */ };
+
+
 //You can also go the other direction (not add property but remove or use subset). 
 //What if you have a type, State, which represents the state of an entire application, and another, TopNavState. 
 interface State {
@@ -166,13 +167,13 @@ type TopNavState4 = {
  * This particular pattern is so common that it’s part of the standard library, where it’s called Pick
 
  */
-type Pick<T, K> = { [k in K]: T[k] };
+type Pickk<T, K> = { [k in K]: T[k] };
 
 /**
  * (This definition isn’t quite complete. We’ll revisit it in Item 50.) You use it
 like this:
  */
-type TopNavState = Pick<State, 'userId' | 'pageTitle' | 'recentFiles'>;
+type TopNavState = Pickk<State, 'userId' | 'pageTitle' | 'recentFiles'>;
 
 /**
  * Another form of duplication can arise with tagged unions. What if you want
@@ -208,11 +209,11 @@ type ActionRecord = Pick<Action, 'type'>;
 
 
 //key-of
-interface Personn { name: string; age: number; } 
+interface Personn { name: string; age: number; }
 function printPersonProperty(person: Personn, property: keyof Person) {
     console.log(`${property}: "${person[property]}"`);
 }
-let personn = {name:"Max", age:27};
+let personn = { name: "Max", age: 27 };
 printPersonProperty(personn, 'name');// name: "Max“ 
 
 
@@ -249,16 +250,20 @@ type OptionsKeys = keyof Options;
  */
 type OptionsUpdate2 = { [k in keyof Options]?: Options[k] };
 class UIWidget2 {
-  constructor(init: Options) { /* ... */ }
-  update(options: OptionsUpdate2) { /* ... */ }
+    constructor(init: Options) { /* ... */ }
+    update(options: OptionsUpdate2) { /* ... */ }
 }
 
 
- 
+
+//see
+type OpsType = Partial<Options>;
+
 class UIWidget3 {
     constructor(init: Options) { /* ... */ }
     update(options: Partial<Options>) { /* ... */ }
 }
+
 
 /**
  * If the index clause in your mapped type is of the form K in keyof T or a
@@ -302,9 +307,8 @@ console.log(value.toString()); // myNumber: 10
 function gen<T>(thing: T): T {
     //tbd
     return thing;
-  }
-  
-  let x: string = gen<string>("oki");
-  let y: number = gen<number>(123);
-  //let z : Book = gen<Book>(books);
-  
+}
+
+let x: string = gen<string>("oki");
+let y: number = gen<number>(123);
+//let z : Book = gen<Book>(books);

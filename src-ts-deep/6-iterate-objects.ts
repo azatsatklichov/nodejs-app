@@ -11,7 +11,7 @@ const obj = {
 };
 for (const k in obj) {
     const v = obj[k];
-    //const v = obj.k;
+    //const v2 = obj.k;
     console.log(v)
     // ~~~~~~ Element implicitly has an 'any' type
     // because type ... has no index signature
@@ -22,6 +22,7 @@ for (const kStr in obj) {
     const k = kStr as keyof typeof obj;
     // ^? const k: "one" | "two" | "three"
     const v = obj[k]; // OK
+    //const v2 = obj.k;
     console.log(v)
 }
 
@@ -41,8 +42,8 @@ function foo(abc: ABC) {
     }
 }
 
-const x = { a: 'a', b: 'b', c: 2, d: new Date() };
-foo(x); // OK
+const xx = { a: 'a', b: 'b', c: 2, d: new Date() };
+foo(xx); // OK
 
 let myObject = {
     firstName: "John",
