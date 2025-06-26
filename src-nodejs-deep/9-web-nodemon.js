@@ -7,11 +7,11 @@ const server = http.createServer((req, res) => {
   console.dir(res, {depth: 0});     
 
   console.log(req.url); 
-  res.end("Hello Nodemon  ds!\n");
+  res.end("Hello Nodemon d  ds!\n");
 });
 
 server.listen(4242, () => {
-  console.log("Server is dd running...");
+  console.log("Server is dd running dsd...");
 });
 
 
@@ -22,7 +22,7 @@ server.listen(4242, () => {
 
 
 
-//EXPRESS
+//EXPRESS  d
 
 // const express = require('express');
 

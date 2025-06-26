@@ -5,5 +5,5 @@ const server = http.createServer((req,res) => {
 });
 
 server.listen(4242, () => {
-          console.log('Server sfdds df is sdd  dds running, ...');
+          console.log('Server sfdds df is sdd  dds running on port 4242, ...');
 });

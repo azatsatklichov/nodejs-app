@@ -195,7 +195,7 @@ type ActionType = 'save' | 'load'; // Repeated types!
 You can define ActionType without repeating yourself by indexing into the
 Action union:
  */
-type ActionType2 = Action['type'];
+type ActionType2 = Action['type']; //try 'types'  you see the error, nice 
 // ^? type ActionType = "save" | "load"
 
 /**
@@ -206,15 +206,6 @@ which would give you an interface with a type property:
 type ActionRecord = Pick<Action, 'type'>;
 // ^? type ActionRecord = { type: "save" | "load"; }
 
-
-
-//key-of
-interface Personn { name: string; age: number; }
-function printPersonProperty(person: Personn, property: keyof Person) {
-    console.log(`${property}: "${person[property]}"`);
-}
-let personn = { name: "Max", age: 27 };
-printPersonProperty(personn, 'name');// name: "Max“ 
 
 
 /**
@@ -238,6 +229,8 @@ class UIWidget {
     constructor(init: Options) { /* ... */ }
     update(options: OptionsUpdate) { /* ... */ }
 }
+
+
 
 /**
  * You can construct OptionsUpdate from Options using a mapped type and keyof:
@@ -263,6 +256,18 @@ class UIWidget3 {
     constructor(init: Options) { /* ... */ }
     update(options: Partial<Options>) { /* ... */ }
 }
+
+
+//key-of
+interface Personn { name: string; age: number; }
+function printPersonProperty(person: Personn, property: keyof Person) {
+    console.log(`${property}: "${person[property]}"`);
+}
+let person1: Personn = { name: "Max", age: 27 };
+printPersonProperty(person1, "name");//  name: "Max“ 
+
+
+
 
 
 /**

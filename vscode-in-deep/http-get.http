@@ -8,8 +8,11 @@
 GET http://localhost:9999/hello/getAllBooks
 
 ###
-GET http://localhost:9999/hello/book
+GET https://seznam.cz
 
 ###
+GET http://localhost:9999/hello/book
+
+
 
 

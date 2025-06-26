@@ -1,0 +1,1 @@
+node --inspect-brk .\z-debug.js

@@ -21,4 +21,4 @@ myEE.on("EVENT_EMIT", () => {
 });
 
 //emit - spread: Spreading - Emitting
-//myEE.emit("EVENT_EMIT");
+myEE.emit("EVENT_EMIT");

@@ -1,0 +1,1 @@
+tsc .\6-avoid-repetative-code.ts | node .\6-avoid-repetative-code.js

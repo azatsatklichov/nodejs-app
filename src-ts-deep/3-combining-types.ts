@@ -12,7 +12,7 @@ const p:PersonSpan = {name:'Alan', birth: new Date()};
 
 
 type PersonUnion = Person | Lifespan;
-const u:PersonUnion =  {birth: new Date()};
+const u:PersonUnion =  {birth: new Date()}; //try {name: "d" }
 //u.
 
 

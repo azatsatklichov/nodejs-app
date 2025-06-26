@@ -1,0 +1,1 @@
+ code --telemetry > telemetry.json

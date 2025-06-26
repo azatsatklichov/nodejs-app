@@ -1,0 +1,1 @@
+code --diff '.\tsconfig copy.json' .\tsconfig.json  
