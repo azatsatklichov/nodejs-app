@@ -1,3 +1,8 @@
+
+//READ the blog 
+//https://medium.com/codex/good-to-know-parts-when-coding-with-javascript-996cd68563d3
+
+
 var a = "JavaScript";
 var b = new String("JavaScript");
 

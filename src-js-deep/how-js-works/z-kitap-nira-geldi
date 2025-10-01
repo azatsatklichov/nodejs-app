@@ -1,0 +1,6 @@
+
+
+let allParagraphs = document.querySelectorAll("p")
+
+
+CHAPTER 8 Manipulating and Interacting with HTML

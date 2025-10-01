@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script type="text/javascript">
+        /**
+         * 
+         * The Order of HTML
+
+         These methods for HTML element selection are dependent on the DOM already having loaded
+
+
+         Since HTML loads from top to bottom, the location of our JavaScript actually matters. 
+         If we put JavaScript at the end of our HTML document, as we have done here, 
+         
+         then the DOM will have already loaded by the time the script runs.
+
+
+          If the DOM is loaded, we can use methods like document.querySelector() without any concerns. 
+
+          In these scenarios, you need to tell JavaScript to wait for the DOM to load.
+
+          To do that, we need to add what is known as an “event listener,” which listens 
+          for specific events, to the HTML DOM (or document object) itself. 
+          This event listener will “fire” whenever the DOM is loaded, 
+          meaning you can only use methods like document.querySelector()
+          within the event listener body:
+
+         */
+        document.addEventListener("DOMContentLoaded", (e) => {
+            window.alert('DOMContentLoaded');
+        })
+    </script>
+</head>
+
+<body>
+    <p>Hello World</p>
+</body>
+
+<script type="text/javascript">
+    /*
+     * Sometimes, you won’t have a choice on where your JavaScript goes,
+     *  but if you do, putting your JavaScript at the end of your HTML 
+     * document is usually easier. 
+     * 
+     * Not only can you skip the event 
+     * listener function, but it means your JavaScript will load last, 
+     * allowing all your other content to load first. That means faster 
+     * load times for your user,
+     *  who can access your page before your JavaScript has been fetched.
+     * 
+     */
+    let allParagraphs = document.querySelectorAll("p")
+
+
+</script>
+
+</html>

@@ -8,6 +8,8 @@ There are three methods inherited by all functions via prototypical inheritance,
 1. call(), which calls a function and gives it some context. Using call() can both define a context for a function and also pass variables to it (separated by commas).
 
 2. apply(), which is the same as call() but uses an array to define the arguments of a function.
+The apply method lets us construct an array of arguments to use to invoke a function.
+It also lets us choose the value of this.
 
 3. bind(), which permanently binds some context to a function – so you never have to redefine its context again.
 */
@@ -32,6 +34,27 @@ let words2 = function (word, punctuation) {
 let helloWorld3 = words2.apply(wordContext, ["World", "!"])
 console.log(helloWorld3) // Hello World!vILA
 
+console.log('-- ')
+let add = function (a, b) {
+    return a+b;
+}
+// Make an array of 2 numbers and add them.
+var array = [3, 4];
+var sum = add.apply(null, array); // sum is 7
+console.log(sum) 
+
+
+// Make an object with a status member.
+var statusObject = {
+status: 'A-OK'
+};
+// statusObject does not inherit from Quo.prototype,
+// but we can invoke the get_status method on
+// statusObject even though statusObject does not have
+// a get_status method.
+//var status = Quo.prototype.get_status.apply(statusObject);
+// status is 'A-OK'
+console.log('-- ')
 
 //**
 //calling repetaedly makes an issue, in above two
