@@ -1,4 +1,4 @@
-module.exports =  function fibonacci(num) {
+module.exports = function fibonacci(num) {
   let a = 1,
     b = 0,
     temp;
@@ -12,6 +12,19 @@ module.exports =  function fibonacci(num) {
 
   return b;
 }
+
+function factorial(n) {
+  if (n === 0 || n === 1) return 1;
+  return n * this.factorial(n - 1);
+}
+
+module.exports = factorial;
+
+
+console.log(fibonacci(455))
+console.log(factorial(455))
+
+
 
 // //recursive
 // module.exports  = function fibonacci2(num) {
@@ -47,3 +60,5 @@ module.exports =  function fibonacci(num) {
 //     return n * factorial(n - 1);
 //   }
 // }
+
+
