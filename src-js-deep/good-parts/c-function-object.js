@@ -40,7 +40,7 @@ objects, functions can have methods.
 var myFun = function addd(a, b) {
     return a + b;
 }
-console.log(myFun(3,5))
+console.log(myFun(3, 5))
 //console.log(addd(3,5)) //ReferenceError: addd is not defined
 
 console.log('\nInvoking a function suspends the execution of the current function, passing control and parameters to the new function.')
@@ -139,15 +139,15 @@ about that next.
 // Create a constructor function called Quo.  It makes an object with a status property.
 var Quo = function (string) {
     this.status = string;
-     this.status2 = string;
+    this.status2 = string;
 };
 // Give all instances of Quo a public method called get_status.
 Quo.prototype.get_status = function () {
     return this.status;
 };
 
-Quo.prototype.myMethod = function(){
-    return "You see I am defined:"+this.status2;
+Quo.prototype.myMethod = function () {
+    return "You see I am defined:" + this.status2;
 }
 // Make an instance of Quo.
 var myQuo = new Quo("Really confused");
@@ -194,10 +194,10 @@ console.log('\nor another handy feature, even a field is not belong to object, w
 
 // Make an object with a status member.
 var myStatusObject = {
-status: 'A-OK'
+    status: 'A-OK'
 };
 // myStatusObject does not inherit from Quo.prototype, but we can invoke the get_status method on myStatusObject even though statusObject does not have a get_status method.
-var status = Quo.prototype.get_status.apply(myStatusObject); 
+var status = Quo.prototype.get_status.apply(myStatusObject);
 // status is 'A-OK'
 console.log(status)
 
@@ -218,11 +218,89 @@ of parameters:
 // the function does not interfere with the sum
 // defined outside of the function. The function
 // only sees the inner one.
-var summ = function ( ) {
+var summ = function () {
     var i, summ = 0;
     for (i = 0; i < arguments.length; i += 1) {
-summ += arguments[i];
-}
-return summ;
+        summ += arguments[i];
+    }
+    return summ;
 };
 console.log(summ(4, 8, 15, 16, 23, 42)); // 108
+/**
+ * This is not a particularly useful pattern. In Chapter 6, we will see how we can add a
+similar method to an array.
+
+Because of a design error, arguments is not really an array. It is an array-like object.
+arguments has a length property, but it lacks all of the array methods. We will see a
+consequence of that design error at the end of this chapter.
+ */
+
+
+
+console.log('\n\n Augmenting Types')
+console.log("\n\n THIS is very NICE feature (see b-object.js) - If we add a new type, property, method to a prototype, that property will immediately be visible in all of the objects")
+/**
+ * JavaScript allows the basic types of the language to be augmented. In Chapter 3, we
+saw that adding a method to Object.prototype makes that method available to all
+objects. This also works for functions, arrays, strings, numbers, regular expressions,
+and booleans.
+
+For example, by augmenting Function.prototype, we can make a method available to
+all functions:
+
+By augmenting Function.prototype with a method method, we no longer have to type
+the name of the prototype property. That bit of ugliness can now be hidden.
+ */
+Function.prototype.method = function (name, func) {
+    this.prototype[name] = func;
+    return this;
+};
+
+Function.prototype.iMethod = function (name, func) {
+    this.prototype[name] = func;
+    return this;
+}
+
+console.log('e.g. JS has not Number types like in JAVA Byte, Short, Integer, Long, Float, Long. By augumenting we can solve this issue')
+/**
+ * By augmenting Function.prototype with a method method, we no longer have to type
+the name of the prototype property. That bit of ugliness can now be hidden.
+
+JavaScript does not have a separate integer type, so it is sometimes necessary to
+extract just the integer part of a number. The method JavaScript provides to do that
+is ugly.
+
+We can fix it by adding an integer method to Number.prototype. It uses either
+Math.ceiling or Math.floor, depending on the sign of the number:
+ */
+Number.method('integer', function () {
+    return Math[this < 0 ? 'ceil' : 'floor'](this);
+});
+console.log((-10 / 3).integer()); // -3
+console.log((13 / 3).integer()); // -3
+
+//or JavaScript lacks a method that removes spaces from the ends of a string. That is an easy oversight to fix:
+String.method('trim', function () {
+    return this.replace(/^\s+|\s+$/g, '');
+});
+console.log('"' + " onat  ".trim() + '"');
+
+console.log('By augmenting the basic types, we can make significant improvements to the expressiveness of the language.')
+/**
+ * By augmenting the basic types, we can make significant improvements to the expressiveness
+of the language. Because of the dynamic nature of JavaScript’s prototypal
+inheritance, all values are immediately endowed with the new methods, even values
+that were created before the methods were created.
+
+
+The prototypes of the basic types are public structures, so care must be taken when
+mixing libraries. One defensive technique is to add a method only if the method is
+known to be missing:
+ */
+// Add a method conditionally.
+Function.prototype.method = function (name, func) {
+    if (!this.prototype[name]) {
+        this.prototype[name] = func;
+    }
+};
+
