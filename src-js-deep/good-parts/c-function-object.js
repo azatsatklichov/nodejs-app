@@ -304,3 +304,21 @@ Function.prototype.method = function (name, func) {
     }
 };
 
+
+
+console.log('\n\n  * Recursion')
+/**
+A recursive function is a function that calls itself, either directly or indirectly. Recursion
+is a powerful programming technique in which a problem is divided into a set of
+similar subproblems, each solved with a trivial solution. Generally, a recursive function
+calls itself to solve its subproblems.
+ */
+var hanoi = function (disc, src, aux, dst) {
+    if (disc > 0) {
+        hanoi(disc - 1, src, dst, aux);
+        console.log('Move disc ' + disc +
+            ' from ' + src + ' to ' + dst);
+        hanoi(disc - 1, aux, src, dst);
+    }
+};
+hanoi(3, 'Src', 'Aux', 'Dst');
