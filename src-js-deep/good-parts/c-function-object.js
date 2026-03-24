@@ -675,3 +675,160 @@ we only need to supply the basic factorial formula:
 var factorial = memoizer([1, 1], function (shell, n) {
 return n * shell(n - 1);
 });
+
+
+
+
+/**
+ * Parameters vs. Arguments
+In JavaScript, function parameters and arguments are distinct concepts:
+
+Parameters are the names listed in the function definition.
+
+Arguments are the real values passed to, and received by the function.
+
+
+Parameter Rules
+JavaScript function definitions do not specify data types for parameters.
+
+JavaScript functions do not perform type checking on the arguments.
+
+JavaScript functions do not check the number of arguments received.
+
+
+Argument Rules
+JavaScript function definitions do not specify data types for arguments.
+JavaScript functions do not perform type checking on the passed arguments.
+JavaScript functions do not check the number of arguments received.
+
+
+
+The Arguments Object
+JavaScript functions have a built-in object called the arguments object.
+
+The argument object contains an array of the arguments used when the function was called (invoked).
+
+This way you can simply use a function to find (for instance) the highest value in a list of numbers:
+
+The Order of Arguments Matters
+Arguments are assigned to parameters in the order they appear.
+
+
+
+Arguments Can Be Variables
+Arguments do not have to be values. They can also be variables.
+
+Missing Arguments
+If a function is called with fewer arguments than parameters, the missing values become undefined.
+
+
+
+Arguments are Passed by Value
+The parameters, in a function call, are the function's arguments.
+
+JavaScript arguments are passed by value: The function only gets to know the values, not the argument's locations.
+
+If a function changes an argument's value, it does not change the parameter's original value.
+
+Changes to arguments are not visible (reflected) outside the function.
+
+Objects are Passed by Reference
+In JavaScript, object references are values.
+
+Because of this, objects will behave like they are passed by reference:
+
+If a function changes an object property, it changes the original value.
+
+Changes to object properties are visible (reflected) outside the function.
+
+
+Common Mistakes - on Arguments 
+Confusing Parameters and Arguments
+Parameters are names.
+Arguments are values.
+Forgetting the Order
+Arguments are assigned by position.
+Missing Arguments
+Use default values to avoid undefined.
+
+
+Common Mistakes - on Parameters 
+Forgetting Return
+A function without return sends back undefined.
+Expecting Code after Return to Run
+Code after return is ignored.
+Confusing console.log() with Return
+console.log() shows output but does not return a value.
+Expecting Return
+If your function does not return a value, storing it in a variable will give undefined.
+
+ */
+
+x = findMax(1, 123, 500, 115, 44, 88);
+console.log(x)
+function findMax() {
+  let max = -Infinity;
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] > max) {
+      max = arguments[i];
+    }
+  }
+  return max;
+}
+
+
+
+
+
+
+/**
+ * Functions vs. Function Expressions
+ * 
+JavaScript functions are defined with the function keyword.
+
+JavaScript functions can be defined in different ways.
+
+In JavaScript, function declarations and function expression refer to different ways of defining functions, their different syntax and how they are handled:
+
+They both work the same when you call them.
+
+The difference is when they become available in your code.
+
+Function Declarations vs Function Expression
+A function declaration (or simply a function) is defined using:
+
+The function keyword
+A function name
+Parameters in parentheses
+A code block brackets
+
+
+
+
+Key Differences
+Syntax:
+Function declarations require a name. Function expressions can be anonymous.
+Hoisting:
+Function declarations are hoisted. Function expressions are not.
+Flexibility:
+Function declarations offer more flexibility in how and where they are used.
+
+When to Use Each
+Use function declarations for general-purpose functions
+Use function expressions when assigning functions to variables
+Use function expressions in callbacks and event handlers
+
+
+Arrow Functions
+The concise arrow function syntax (=>) is a modern way of writing function expressions.
+
+Callbacks
+Passing functions as arguments to other functions, such as event listeners or asynchronous operations.
+
+Closures
+Function expressions help create closures, which allow functions to remember and access variables from their containing scope.
+
+Immediately Invoked Function Expressions (IIFEs)
+Functions Expressions that run as soon as they are defined, are often used to create private scopes and avoid global variable conflicts.
+
+ */

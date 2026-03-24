@@ -1,4 +1,22 @@
 /** 
+ * 
+ * In JavaScript, Objects are King
+If you Understand Objects, you Understand JavaScript.
+In JavaScript, almost "everything" is an object:
+
+Objects are objects
+Maths are objects
+Dates are objects
+Arrays are objects
+Maps are objects
+Sets are objects
+RegExp are Objects
+Errors are Objects
+All JavaScript values, except primitives, are objects.
+
+
+
+
 Object literals are the strong part in JS. 
 
 Object literals are a convenient notation for specifying new objects. 
@@ -189,6 +207,33 @@ prototype chain:
  */
 flight.hasOwnProperty('number') // true
 flight.hasOwnProperty('constructor') // false
+
+
+
+console.log("\n\nObject Constructors")
+/**
+ * Object Constructor Functions
+Sometimes we need to create many objects of the same type.
+
+To create an object type we use an object constructor function.
+
+It is considered good practice to name constructor functions with an upper-case first letter.
+ */
+// Constructor Function for Person objects
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+// Create a Person object
+const myFather = new Person("Suvhan", "Satklycov", 82, "gara");
+console.log(myFather)
+// Create another Person object
+const myMother = new Person("Altyn", "Satklycova", 78, "gara");
+console.log(myMother)
+
+
 
 console.log('\n\nEnumeration')
 console.log('There is no guarantee on the order of the names, so be prepared for the names to appear in any order.\n')
