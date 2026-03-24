@@ -322,3 +322,356 @@ var hanoi = function (disc, src, aux, dst) {
     }
 };
 hanoi(3, 'Src', 'Aux', 'Dst');
+
+/**
+ * Recursive functions can be very effective in manipulating tree structures such as the
+browser’s Document Object Model (DOM).
+ */
+
+
+console.log('\n\n  * Scope -  JavaScript does not have block scope. JavaScript does have function scope.')
+/**
+Scope in a programming language controls the visibility and lifetimes of variables and
+parameters. This is an important service to the programmer because it reduces naming
+collisions and provides automatic memory management
+ */
+var foo = function () {
+    var a = 3, b = 5;
+    var bar = function () {
+        var b = 7, c = 11;
+        // At this point, a is 3, b is 7, and c is 11
+        a += b + c;
+        // At this point, a is 21, b is 7, and c is 11
+    };
+    // At this point, a is 3, b is 5, and c is not defined
+    bar();
+    // At this point, a is 21, b is 5
+};
+console.log(foo())
+/**
+ * Most languages with C syntax have block scope. All variables defined in a block (a
+list of statements wrapped with curly braces) are not visible from outside of the
+block. The variables defined in a block can be released when execution of the block
+is finished. This is a good thing.
+
+Unfortunately, JavaScript does not have block scope even though its block syntax
+suggests that it does. This confusion can be a source of errors.
+
+JavaScript does have function scope. That means that the parameters and variables
+defined in a function are not visible outside of the function, and that a variable
+defined anywhere within a function is visible everywhere within the function.
+
+In many modern languages, it is recommended that variables be declared as late as
+possible, at the first point of use. That turns out to be bad advice for JavaScript
+because it lacks block scope. So instead, it is best to declare all of the variables used
+in a function at the top of the function body.
+ */
+
+
+
+
+
+console.log('\n\n  CLOSURE -  JavaScript does not have block scope. JavaScript does have function scope.')
+/**
+ * The good news about scope is that inner functions get access to the parameters and
+variables of the functions they are defined within (with the exception of this and
+arguments). 
+This is a very good thing.
+
+A more interesting case is when the inner function has a longer lifetime than its outer
+function.
+Earlier, we made a myObject that had a value and an increment method. Suppose we
+wanted to protect the value from unauthorized changes.
+Instead of initializing myObject with an object literal, we will initialize myObject by
+calling a function that returns an object literal. That function defines a value variable.
+That variable is always available to the increment and getValue methods, but
+the function’s scope keeps it hidden from the rest of the program:
+
+We are not assigning a function to myObject. We are assigning the result of invoking
+that function. Notice the () on the last line. The function returns an object containing
+two methods, and those methods continue to enjoy the privilege of access to the
+value variable.
+ */
+var myObject2 = function () {
+    var value = 0;
+    return {
+        increment2: function (inc) {
+            value += typeof inc === 'number' ? inc : 1;
+        },
+        getValue2: function () {
+            return value;
+        }
+    };
+}();
+
+var quo2 = function (status) {
+    return {
+        get_status: function () {
+            return status;
+        }
+    };
+};
+// Make an instance of quo.
+
+var myQuo = quo2("amazed");
+console.log(myQuo.get_status());
+/**
+ * This quo function is designed to be used without the new prefix, so the name is not
+capitalized. When we call quo, it returns a new object containing a get_status
+method. A reference to that object is stored in myQuo. The get_status method still
+has privileged access to quo’s status property even though quo has already returned.
+get_status does not have access to a copy of the parameter; it has access to the
+parameter itself. This is possible because the function has access to the context in
+which it was created.
+
+This is called closure. 
+ */
+
+
+
+
+console.log('\n\n  Callbacks - callback function that will be invoked later once result is available. promotes encapsulation, security ans other design patterns')
+/**
+Functions can make it easier to deal with discontinuous events. For example, suppose
+there is a sequence that begins with a user interaction, making a request of the
+server, and finally displaying the server’s response. The naïve way to write that
+would be:
+ */
+function prepare_the_request() { }
+function send_request_synchronously(request) { }
+function display(response) { }
+request = prepare_the_request();
+response = send_request_synchronously(request);
+display(response);
+/**
+ * The problem with this approach is that a synchronous request over the network will
+leave the client in a frozen state. If either the network or the server is slow, the degradation
+in responsiveness will be unacceptable.
+
+A better approach is to make an asynchronous request, providing a callback function
+that will be invoked when the server’s response is received. An asynchronous
+function returns immediately, so the client isn’t blocked
+ */
+request = prepare_the_request();
+async function send_request_asynchronously() { } //tbd
+send_request_asynchronously(request, function (response) {
+    display(response);
+});
+
+
+console.log('\n\n  * Module - Use of the module pattern can eliminate the use of global variables.')
+/**
+We can use functions and closure to make modules. A module is a function or object
+that presents an interface but that hides its state and implementation. By using functions
+to produce modules, we can almost completely eliminate our use of global variables,
+thereby mitigating one of JavaScript’s worst features.
+ */
+console.log('By using functions  to produce modules, we can almost completely eliminate our use of global variables, \n thereby mitigating one of JavaScript’s worst features')
+/**
+ * Use of the module pattern can eliminate the use of global variables. It promotes
+information hiding and other good design practices. It is very effective in encapsulating
+applications and other singletons.
+
+It can also be used to produce objects that are secure. Let’s suppose we want to make
+an object that produces a serial number:
+ */
+var serial_maker = function () {
+    // Produce an object that produces unique strings. A
+    // unique string is made up of two parts: a prefix
+    // and a sequence number. The object comes with
+    // methods for setting the prefix and sequence
+    // number, and a gensym method that produces unique
+    // strings.
+    var prefix = '';
+    var seq = 0;
+    return {
+        set_prefix: function (p) {
+            prefix = String(p);
+        },
+        set_seq: function (s) {
+            seq = s;
+        },
+        gensym: function () {
+            var result = prefix + seq;
+            seq += 1;
+            return result;
+        }
+    };
+};
+var seqer = serial_maker();
+seqer.set_prefix('Q')
+seqer.set_seq(1000);
+var unique = seqer.gensym(); // unique is "Q1000"
+console.log(unique)
+/**
+ * The methods do not make use of this or that. As a result, there is no way to compromise
+the seqer. It isn’t possible to get or change the prefix or seq except as permitted
+by the methods. The seqer object is mutable, so the methods could be
+replaced, but that still does not give access to its secrets. seqer is simply a collection
+of functions, and those functions are capabilities that grant specific powers to use or
+modify the secret state.
+If we passed seqer.gensym to a third party’s function, that function would be able to
+generate unique strings, but would be unable to change the prefix or seq.
+ */
+
+
+
+console.log('\n\n  Cascade  - like a template method, or builder pattern chain methods,.. ')
+/**
+ * Some methods do not have a return value. For example, it is typical for methods that
+set or change the state of an object to return nothing. If we have those methods
+return this instead of undefined, we can enable cascades. In a cascade, we can call
+many methods on the same object in sequence in a single statement.
+
+Cascading can produce interfaces that are very expressive. It can help control the tendency
+to make interfaces that try to do too much at once.
+ */
+
+
+
+
+
+
+console.log('\n\n  Curry  - produce a new function by combining a function and an argument ')
+/**
+ * Functions are values, and we can manipulate function values in interesting ways.
+Currying allows us to produce a new function by combining a function and an
+argument:
+ */
+
+// Normal Function
+// function add(a, b) {
+//     return a + b;
+// }
+// console.log(add(2, 3)); 
+
+// Function Currying
+function add2(a) {
+    return function (b) {
+        return a + b;
+    }
+}
+
+const addTwo = add2(5);  // First function call with 5
+console.log(addTwo(4));
+
+console.log('\nCurrying with Arrow Functions')
+//Arrow function can be used to make currying function short:
+/**
+ * How Currying Works in JavaScript?
+Currying function in the JavaScript can be done manually, but it can also be done using the closure. Below it is shown that how currying function works.
+
+Creating the First Function: The first function takes the first argument and gives back a new function to take the next one.
+Returning a New Function: The returned function takes the next argument and keeps going until all the arguments are given.
+Returning the Result: Once all the arguments are provided, the final result is calculated and returned.
+ */
+const addz = a => b => a + b;
+console.log(addz(5)(4));
+
+
+//or 
+
+const test = (a, b) => b + " " + a;
+test("I am arg1", " I am arg2"); // I am arg1 I am arg2
+
+//  Currying is basically the fact of nesting returning functions and be able to partially consume a function.
+const curr = (a) => (b) => b + " " + a;
+let cc = curr("I am arg1")(" I am arg2"); // I am arg1 I am arg2
+console.log(cc)
+
+//const compute = (a: number, f: (x:number) => number) : number => f(a);
+
+const square = (a) => {
+    let res = a * a;
+    console.log(res);
+    return res;
+};
+
+
+
+
+console.log('\n\n  Memoization ')
+/**
+ * Functions can use objects to remember the results of previous operations, making it
+possible to avoid unnecessary work. This optimization is called memoization.
+JavaScript’s objects and arrays are very convenient for this.
+
+This works, but it is doing a lot of unnecessary work. The fibonacci function is
+called 453 times. We call it 11 times, and it calls itself 442 times in computing values
+that were probably already recently computed. If we memoize the function, we can
+significantly reduce its workload.
+ */
+var fibonacci = function (n) {
+    return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+};
+for (var i = 0; i <= 10; i += 1) {
+    console.log('// ' + i + ': ' + fibonacci(i));
+}
+
+console.log('\n')
+/**
+ * We will keep our memoized results in a memo array that we can hide in a closure.
+When our function is called, it first looks to see if it already knows the result. If it
+does, it can immediately return it:
+
+ */
+var fibonacci2 = function () {
+    var memo = [0, 1];
+    var fib = function (n) {
+        var result = memo[n];
+        if (typeof result !== 'number') {
+            result = fib(n - 1) + fib(n - 2);
+            memo[n] = result;
+        }
+
+        return result;
+    };
+    return fib;
+}(); ///you see function is already invoked  
+/**
+ * 
+This function returns the same results, but it is called only 29 times. We called it 11
+times. It called itself 18 times to obtain the previously memoized results.
+ */
+for (var i = 0; i <= 10; i += 1) {
+    console.log('// ' + i + ': ' + fibonacci2(i));
+}
+ 
+/**
+ * We can generalize this by making a function that helps us make memoized functions.
+The memoizer function will take an initial memo array and the fundamental function.
+It returns a shell function that manages the memo store and that calls the
+fundamental function as needed. We pass the shell function and the function’s
+parameters to the fundamental function:
+ */
+var memoizer = function (memo, fundamental) {
+    var shell = function (n) {
+        var result = memo[n];
+        if (typeof result !== 'number') {
+            result = fundamental(shell, n);
+            memo[n] = result;
+        }
+        return result;
+    };
+    return shell;
+};
+
+console.log('\n')
+
+//We can now define fibonacci with the memoizer, providing the initial memo array and fundamental function:
+var fibonacci3 = memoizer([0, 1], function (shell, n) {
+return shell(n - 1) + shell(n - 2);
+});
+for (var i = 0; i <= 10; i += 1) {
+    console.log('// ' + i + ': ' + fibonacci3(i));
+} 
+
+
+/**
+ * By devising functions that produce other functions, we can significantly reduce the
+amount of work we have to do. For example, to produce a memoizing factorial function,
+we only need to supply the basic factorial formula:
+ */
+var factorial = memoizer([1, 1], function (shell, n) {
+return n * shell(n - 1);
+});
