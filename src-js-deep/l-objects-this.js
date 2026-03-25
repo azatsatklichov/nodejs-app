@@ -1,4 +1,6 @@
 
+
+//https://www.w3schools.com/js/js_function_this.asp
 console.log(this);  // {} , this === module.exports which is an empty object for now
 
 module.exports.foo = 5;

@@ -338,6 +338,11 @@ console.log(c2)
 
 
 
+console.log('\nMany built-in array methods like map(), filter(), and forEach() accept callback functions to define the action performed on each element.')
+//see c-functions.js callback methods
+
+
+
 console.log('\n\nString  methods')
 console.log('\localeCompare()')
 /**

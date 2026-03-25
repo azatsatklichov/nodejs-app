@@ -2,6 +2,8 @@
  * JavaScript has 8 Datatypes
 A JavaScript variable can hold 8 types of data:
 
+https://www.w3schools.com/js/js_datatypes_objects.asp
+
 
  */
 // String - A text of characters enclosed in quotes

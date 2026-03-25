@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The JavaScript <i>this</i> Keyword</h1>
+
+<p>In a function, by default, <b>this</b> refers to the <b>global object</b>.</p>
+<p>But, strict mode does not allow default binding, so <b>this</b> is undefined.</p>
+
+<p id="demo"></p>
+
+<script>
+"use strict";
+document.getElementById("demo").innerHTML = "This is: " + myFunction();
+
+function myFunction() {
+  return this;
+}
+</script>
+
+</body>
+</html>

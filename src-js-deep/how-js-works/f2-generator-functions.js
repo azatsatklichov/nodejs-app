@@ -1,9 +1,12 @@
 
 /**
+ * 
  * Generator Functions
 The final type of function we’ll look at is known as the generator function. Earlier,
  when we looked at array iteration, we mentioned how we could create an iterator with 
  access to the next() method by accessing the iterator protocol:
+
+ see also https://www.w3schools.com/js/js_generators.asp 
  */
 let myArray = ["lightning", "apple", "squid", "speaker"]
 let getIterator = myArray[Symbol.iterator]()
