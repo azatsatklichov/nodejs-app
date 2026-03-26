@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The JavaScript <i>this</i> Keyword</h1>
+
+<p>In a function, by default, <b>this</b> refers to the <b>global object</b>.</p>
+<p>But, strict mode does not allow default binding, so <b>this</b> is undefined.</p>
+
+<p id="demo"></p>
+
+<script>
+"use strict";
+document.getElementById("demo").innerHTML = "This is: " + myFunction();
+
+function myFunction() {
+  return this;
+}
+
+
+
+
+console.log('\nArrow Notation Functionality with this')
+/**
+ * Arrow functions are a little different from other functions in that they do not have their own context.
+ * 
+ * That means that even in strict mode, they inherit it from their parents. This functionality only really makes sense in strict mode:
+ */ 
+console.log(this) // Window { }
+let words = () => {
+   console.log(this)
+}
+words() // console logs Window { }
+
+
+
+/**
+ * If your arrow function is inside another function, which is not using arrow notation, it inherits the context from that parent function. This can be seen in the following example: 
+ */ 
+let contextualFunction = function() {
+let words = () => {
+console.log(this) // console logs undefined
+}
+words()
+}
+contextualFunction() // console logs undefined
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+
+
+<h2>JavaScript Objects</h2>
+
+
+<pre>
+
+    Prototype Inheritance
+All JavaScript objects inherit properties and methods from a prototype:
+
+Date objects inherit from Date.prototype
+Array objects inherit from Array.prototype
+Person objects inherit from Person.prototype
+The Object.prototype is on the top of the prototype inheritance chain:
+
+Date objects, Array objects, and Person objects inherit from Object.prototype.
+
+
+</pre>
+
+
+
+<p id="demo"></p>
+
+<script>
+    function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    Person.prototype.nationality = "English";
+
+    var myFather = new Person("John", "Doe", 50, "blue");
+    document.getElementById("demo").innerHTML =
+        "The nationality of my father is " + myFather.nationality;
+</script>
+
+
+
+<p id="demoh"></p>
+
+<script>
+    function Person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    Person.prototype.name = function() {
+        return this.firstName + " " + this.lastName
+    };
+
+    var myFather = new Person("John", "Doe", 50, "blue");
+    document.getElementById("demoh").innerHTML =
+        "My father is " + myFather.name();
+</script>
+
+
+
