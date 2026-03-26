@@ -2,6 +2,19 @@
 //https://www.w3schools.com/js/js_function_this.asp
 console.log('\n\n  JS this keyword')
 /**
+ * By default both browser and node applications work in SLOPPY mode if you have not set the 'STRICT' mode. 
+And inherits everithing from Javascript SLOPPY Architecture which ignores some errors (closes one eye to error) 
+and causing functions to inherit the GLOBAL context. 
+
+STRICT mode brings many advantagesto your code, the main one being separating out function contexts from GLOBAL context. 
+Both files and functions can be made STRICT by adding the "use strict" text at the top. 
+
+
+In general, strict mode is a more reliable way to write code. As well as that, 
+it’s pretty bad practice to expose global variables unknowingly to downstream scripts, which should perhaps not have access to them.
+ * 
+ * 
+ * 
 What is this?
 When the this keyword is used in a function, it refers to an Object.
 
@@ -86,8 +99,7 @@ const personz = {
 
 console.log(personz.sayHello())
 
-
-console.log('Arrow functions can be useful inside methods when you want to keep the same this value.')
+console.log('\nArrow functions can be useful inside methods when you want to keep the same this value.')
 const personz2 = {
   firstName: "John",
   sayHello: function() {
@@ -95,6 +107,41 @@ const personz2 = {
   }
 }; 
 console.log(personz2.sayHello())
+
+
+
+console.log('\nArrow Notation Functionality with this')
+/**
+ * Arrow functions are a little different from other functions in that they do not have their own context.
+ * 
+ * That means that even in strict mode, they inherit it from their parents. This functionality only really makes sense in strict mode:
+ * 
+ * try beow in browser
+ */
+"use strict"
+console.log(this) // Window { }
+let words = () => {
+   console.log(this)
+}
+words() // console logs Window { }
+
+
+/**
+ * If your arrow function is inside another function, which is not using arrow notation, it inherits the context from that parent function. This can be seen in the following example: 
+ * 
+ * in browser 
+ */
+"use strict"
+let contextualFunction = function() {
+let words = () => {
+console.log(this) // console logs undefined
+}
+words()
+}
+contextualFunction() // console logs undefined
+
+
+
 
 /**
  * What is this?
@@ -129,3 +176,5 @@ Order	Object	Because
 
 
  */
+
+

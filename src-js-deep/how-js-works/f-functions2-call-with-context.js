@@ -1,5 +1,22 @@
 
 
+/**
+ * By default both browser and node applications work in SLOPPY mode if you have not set the 'STRICT' mode. 
+And inherits everithing from Javascript SLOPPY Architecture which ignores some errors (closes one eye to error) 
+and causing functions to inherit the GLOBAL context. 
+
+STRICT mode brings many advantagesto your code, the main one being separating out function contexts from GLOBAL context. 
+Both files and functions can be made STRICT by adding the "use strict" text at the top. 
+
+
+In general, strict mode is a more reliable way to write code. As well as that, 
+it’s pretty bad practice to expose global variables unknowingly to downstream scripts, which should perhaps not have access to them.
+
+So far, while working in strict mode, this has been undefined inside functions. 
+To make the this keyword more valuable, we will want to give it some kind of value. To do that, we need to understand the different ways we can call functions with context.
+ */
+
+
 ///Calling Functions with Context
 /**
 
