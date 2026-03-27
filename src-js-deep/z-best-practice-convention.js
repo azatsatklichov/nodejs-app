@@ -14,3 +14,6 @@ var that2=this;
 //https://www.w3schools.com/js/js_conventions.asp
 //news in ES https://www.w3schools.com/js/js_2026.asp 
 
+//https://javascript.info/code-quality
+
+

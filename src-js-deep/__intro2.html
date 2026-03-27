@@ -31,12 +31,18 @@ document.getElementById("demoz").addEventListener("click", fun2());
 document.write loads the page, you lost all - so be CAREFUL
 <button type="button" onclick="document.write(5 + 6  )">Try it</button>
 
+The “script” tag - Summary
+We can use a
+<pre>  'script>' tag to add JavaScript code to a page.
+The type and language attributes are not required.
+A script in an external file can be inserted with 'script src="path/to/script.js"'.
+</pre>
 </body>
 
 
-<script type="text/javascript"> 
+<script > 
 // Our JavaScript
 let o = window.prompt('enter your name');
-window.alert('Hello '+o);
+window.alert('Hello WallBox '+o);
 </script>
 </html> 

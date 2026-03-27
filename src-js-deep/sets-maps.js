@@ -1,5 +1,10 @@
 
 
+//very nice https://www.w3schools.com/js/js_set_logic.asp
+
+//https://javascript.info/weakmap-weakset
+//https://javascript.info/keys-values-entries
+
 let myMap = new Map()
 myMap.set("key", "value")
 myMap.set("secondKey", "value")

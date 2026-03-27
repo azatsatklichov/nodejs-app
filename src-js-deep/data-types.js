@@ -3,7 +3,7 @@
  * Primitives, and references, and function calls live in STACK
  * 
  * objects and function definition  live in HEAP
- */
+
 
 console.log(typeof 5) // 'number'
 console.log(typeof "name") // 'string'
