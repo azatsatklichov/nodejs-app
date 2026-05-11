@@ -21,3 +21,9 @@ function ScopeTest() {
 }
 //Globally available in the function in which it is declared in case automatic 
 console.log(foo); // error!!
+
+
+let tt = 'd';
+let num:number  = tt as any;
+let v = {str: 'hello', num: 42};
+// ^? let v: { str: string; num: number; }

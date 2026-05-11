@@ -44,7 +44,7 @@ interface Rectangle {
     width: number;
 }
 type Shape22 = Square | Rectangle;
-function calculateArea22(shape: Shape22) {
+function calculateArea222(shape: Shape22) {
     if (shape.kind === 'rectangle') {
         return shape.width * shape.height;
         // ^? (parameter) shape: Rectangle
@@ -54,8 +54,8 @@ function calculateArea22(shape: Shape22) {
     }
 }
 
-const sh:Shape22 = {width:232, kind:'square'}
-console.log("Sh = "+calculateArea22(sh));
+const sh:Shape22 = {width:232, kind:'square'};
+console.log("Sh = "+calculateArea222(sh)); 
 /**
  * 23
 23

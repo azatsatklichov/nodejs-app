@@ -8,6 +8,14 @@ console.log(x);
 var y = '2' + 3; // OK
 // ^? const y: string
 console.log(y);
+console.log('2' + 3);
+console.log(2+'3');
+
+console.log('BUUUT - coercian happens for MINUS')
+console.log('2' - 3);
+console.log(2-'3');
+ 
+
 var a = null + 7; // Evaluates to 7 in JS
 console.log(a);
 // ~~~~ The value 'null' cannot be used here.
