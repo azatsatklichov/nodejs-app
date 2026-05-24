@@ -5,19 +5,24 @@
 var x = 2 + '3'; // OK
 // ^? const x: string
 console.log(x);
+console.log(2+'3');
 var y = '2' + 3; // OK
 // ^? const y: string
 console.log(y);
 console.log('2' + 3);
 console.log(2+'3');
 
-console.log('BUUUT - coercian happens for MINUS')
+console.log('BUUUT - coercion happens for MINUS')
 console.log('2' - 3);
 console.log(2-'3');
  
 
+console.log();
 var a = null + 7; // Evaluates to 7 in JS
 console.log(a);
+a = undefined + 7; // Evaluates to NAN in JS 
+console.log(a);
+
 // ~~~~ The value 'null' cannot be used here.
 var b = [] + 12; // Evaluates to '12' in JS
 console.log(b);

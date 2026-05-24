@@ -5,7 +5,13 @@ let ageInYears: number;
 // ~~~~~~~ Type 'string' is not assignable to type 'number'.
 ageInYears = '12' as any; // OK
 
-//calc age  after one year - chaos 
+//calc age  after one year - chaos
+/**
+ * In the preceding example, the type declaration says that ageInYears is a
+number. But any lets you assign a string to it. The type checker will
+believe that it’s a number (that’s what you said, after all), and the chaos will
+go uncaught:
+ */
 ageInYears += 1; // OK; at runtime, ageInYears is now "121"
 console.log(ageInYears)
 
@@ -18,29 +24,44 @@ function calculateAge(birthDate: Date): number {
 }
 
 let birthDate: any = '19e90-01-19';
+/**
+ * When you write a function, you are specifying a contract: if the caller gives
+you a certain type of input, you’ll produce a certain type of output. But with
+an any type, you can break these contracts 
+without the type checker complaining. In this example, calculateAge
+ */
 calculateAge(birthDate); // OK
 
-let person1 = {name: "Oli", age:12};
-//person1. //has autocompletion
 
+//There Are No Language Services for any Types
+let person1 = { name: "Oli", age: 12 };
+person1.age //has autocompletion
 
-let person2: any = {name: "Oli", age:12};
+let person2: any = { name: "Oli", age: 12 };
 //person2. //no such
- 
-let msg; //implicit ANY, no INTELLISENCE
-//bad experience, like repeating VAR experience 
-msg = false; //no INTELLISENCE
-msg = 123; //no INTELLISENCE
-msg = "abc"; //no INTELLISENCE
 
-//1-way cast
-(<string>msg).startsWith("a");
-console.log((<string>msg).startsWith("a"));
-//(<number>msg).toFixed(); //TypeError: msg.toFixed is not a functio - Casting doesn't actually change the type of the data within the variable. See TS-Casting
-console.log((<number>msg).toFixed); //undefined
-//2-way
-(msg as string).startsWith("a");
 
+//Renaming is another such service. If you have a Person type and functions
+//to format a person’s name:
+interface Person {
+    first: string;
+    last: string;
+}
+/**
+ * 
+then you can select first in your editor, choose “Rename Symbol,” and
+change it to firstName.
+
+This changes the formatName function but not the any version:
+TRY with right click on first and select "Rename Symbol" in your editor, then change it to firstName. You will see that the formatName function is updated but the formatNameAny function is not updated, which can lead to bugs.
+
+One of TypeScript’s tag lines is “JavaScript that scales.” A key part of
+“scales” is the language services, which are an essential part of the
+TypeScript experience (see Item 6). Losing them will lead to a loss in
+productivity, not just for you but for everyone else working with your code.
+ */
+const formatName = (p: Person) => `${p.first} ${p.last}`;
+const formatNameAny = (p: any) => `${p.first} ${p.last}`;
 
 
 
@@ -62,7 +83,7 @@ function handleSelectItem(item: any) {
     selectedId = item.id;
 }
 
-renderSelector({onSelectItem: handleSelectItem});
+renderSelector({ onSelectItem: handleSelectItem });
 
 /**
  * Later you rework the selector in a way that makes it harder to pass the
@@ -70,7 +91,7 @@ whole item object through to onSelectItem. But that’s no big deal since
 you just need the ID. You change the signature in ComponentProps:
  */
 interface ComponentProps2 {
-onSelectItem: (id: number) => void;
+    onSelectItem: (id: number) => void;
 }
 /**
  * You update the component and everything passes the type checker. Victory!
@@ -79,6 +100,7 @@ with an item as it is with an ID. It produces a runtime exception, despite
 passing the type checker. Had you used a more specific type, this would
 have been caught by the type checker.
  */
+
 
 //any Hides Your Type Design
 /**
@@ -115,4 +137,21 @@ For the times when you must use any, there are better and worse ways to do
 it. For much more on how to limit the downsides of any, see Chapter 5.
  */
 
- 
+
+
+
+let msg; //implicit ANY, no INTELLISENCE
+//bad experience, like repeating VAR experience 
+msg = false; //no INTELLISENCE
+msg = 123; //no INTELLISENCE
+msg = "abc"; //no INTELLISENCE
+
+//1-way cast
+(<string>msg).startsWith("a");
+console.log((<string>msg).startsWith("a"));
+//(<number>msg).toFixed(); //TypeError: msg.toFixed is not a functio - Casting doesn't actually change the type of the data within the variable. See TS-Casting
+console.log((<number>msg).toFixed); //undefined
+//2-way
+(msg as string).startsWith("a");
+
+
