@@ -1,3 +1,5 @@
+//map-between-types 
+
 console.log(
     'Cylinder r=1 * h=1',
     'Surface area:', 6.283185 * 1 * 1 + 6.283185 * 1 * 1,
@@ -34,20 +36,38 @@ for (const [r, h] of [[1, 1], [1, 2], [2, 1]]) {
 }
 
 
-function distance(a: { x: number, y: number }, b: { x: number, y: number }) {
-    return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
-}
 
 /**
 The simplest way to reduce repetition is by naming your types. Rather than
 writing a distance function above  way
 */
+function distance(a: { x: number, y: number }, b: { x: number, y: number }) {
+    return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+}
 
+//create a name for the type and use it:
 interface Point2D {
     x: number;
     y: number;
 }
 function distance2(a: Point2D, b: Point2D) { /* ... */ }
+
+/**
+ * This is the type system equivalent of factoring out a constant instead of
+writing it repeatedly. Duplicated types aren’t always so easy to spot.
+Sometimes they can be obscured by syntax. 
+ */
+ 
+//If several functions share the same type signature, for instance
+function get(url: string, opts: Options): Promise<Response> { /* ... */ }
+function post(url: string, opts: Options): Promise<Response> { /* ... */ }
+
+//Then factor out a named type for the signatures
+type HTTPFunction = (url: string, opts: Options) => Promise<Response>;
+const get2: HTTPFunction = (url, opts) => { /* ... */ };
+const post2: HTTPFunction = (url, opts) => { /* ... */ };
+
+
 
 
 
@@ -65,6 +85,15 @@ interface PersonWithBirthDate {
 
 /**
  * You can eliminate the repetition by making one interface extend the other:
+ * 
+ * Duplication in types has many of the same problems as duplication in code.
+What if you decide to add an optional middleName field to Person? Now
+Person and PersonWithBirthDate have diverged.
+One reason that duplication is more common in types is that the
+mechanisms for factoring out shared patterns are less familiar than they are
+with code: what’s the type system equivalent of factoring out a helper
+function? By learning how to map between types, you can bring the benefits
+of DRY to your type definitions.
  */
 interface Person {
     firstName: string;
@@ -107,19 +136,6 @@ interface Bird extends Vertebrate {
 interface Mammal extends Vertebrate {
     eatsGardenPlants: boolean;
 }
-
-
-
-//Duplicated types aren’t always so easy to spot. Sometimes they can be obscured by syntax
-
-//If several functions share the same type signature, for instance
-function get(url: string, opts: Options): Promise<Response> { /* ... */ }
-function post(url: string, opts: Options): Promise<Response> { /* ... */ }
-
-//Then factor out a named type for the signatures
-type HTTPFunction = (url: string, opts: Options) => Promise<Response>;
-const get2: HTTPFunction = (url, opts) => { /* ... */ };
-const post2: HTTPFunction = (url, opts) => { /* ... */ };
 
 
 //You can also go the other direction (not add property but remove or use subset). 

@@ -1,7 +1,7 @@
 
 //differences
 
-//1 there are union types but no union interfaces
+//1. First difference is that there are union types but no union interfaces
 type AorB = 'a' | 'b';
 
 /**
@@ -20,7 +20,7 @@ interface VariableMap {
 then you might want a type that attaches the name to the variable. This
 would be:
  */
-type NamedVariable = (Input | Output) & { name: string };
+type NamedVariable = (Input | Output) & { name: string }; //type patching, not inheritance
 
 /**
  * This type cannot be expressed with interface. A type is, in general, more
@@ -35,8 +35,6 @@ interface Person {
 name: string;
 age: string;
 }
-type TPerson = Person & { age: number; }; // no error, unusable type
-//const t:TPerson = {name:"ola", age:12}; //Type 'number' is not assignable to type 'never'
 
 interface IPerson extends Person {
     // ~~~~~~~ Interface 'IPerson' incorrectly extends interface 'Person'.
@@ -44,6 +42,10 @@ interface IPerson extends Person {
     // Type 'number' is not assignable to type 'string'.
     age: number;
 }
+type TPerson = Person & { age: number; }; // no error, unusable type
+
+
+const t:TPerson = {name:"ola", age:12}; //Type 'number' is not assignable to type 'never'
 /**
  * It’s fine to change the type of a property in a subtype, so long it’s
 compatible with the base type (see Item 7). Generally you want more safety

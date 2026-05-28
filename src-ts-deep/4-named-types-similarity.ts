@@ -1,4 +1,5 @@
-//If you want to define a named type in TypeScript, you have two options: Type Aliases or Interfaces
+//If you want to define a named type in TypeScript, 
+// you have two options: Type Aliases or Interfaces
 
 //similarities
 type TState = {
@@ -12,6 +13,13 @@ interface IState {
     capital: string;
 }
 
+/**
+ * First, the similarities: the two State types are nearly indistinguishable from
+one another. If you define an IState or a TState value with an extra
+property, the errors you get from excess property checking (Item 11) are
+character-by-character identical:
+
+ */
 const s1: TState = {
     name: 'Wyoming',
     capital: 'Cheyenne',
@@ -29,11 +37,12 @@ const s2: IState = {
 };
 
 
-//You can use an index signature with both interface and type:
+//You can use an index signature (RECORD) with both interface and type:
 type TDict = { [key: string]: string }; 
 interface IDict {
     [key: string]: string;
 }
+
 
 const idxT: TDict = { "typeK": "OO Type" } 
 idxT["interfaceK"] = "Experience from T4Z" //RECORDS
@@ -44,6 +53,14 @@ idxI["interfaceK"] = "Experience from T4Z" //RECORDS
 
 
 //You can also define function types with either:
+/**
+ * The first type alias form (TFn) looks more natural and is more concise for
+function types. This is the preferred form and is the one you’re most likely
+to encounter in type declarations. The latter two forms reflect the fact that
+functions in JavaScript are callable objects. They are sometimes useful with
+overloaded function signatures.
+
+ */
 type TFn = (x: number) => string;
 interface IFn {
     (x: number): string;
@@ -75,6 +92,7 @@ interface IStateWithPop extends TState {
     population: number;
 }
 type TStateWithPop = IState & { population: number; };
+
 /**
  * Again, these types are identical. The caveat is that an interface can only
     extend object types that could have been defined with interface (even if
@@ -99,3 +117,5 @@ class StateI implements IState {
 
 const clI = new StateI();
 clI.capital;
+
+//Finally, both type and interface can be recursive
