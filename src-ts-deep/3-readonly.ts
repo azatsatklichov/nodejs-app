@@ -1,4 +1,22 @@
 
+//readonly properties and immutability
+interface Lockbox {
+  code: number;
+}
+interface ReadonlyLockbox {
+  readonly code: number;
+}
+ 
+const box: Lockbox = { code: 4216 };
+const robox: ReadonlyLockbox = { code: 3625 };
+box.code = 1234;  // ok
+robox.code = 1234;
+//    ~~~~ Cannot assign to 'code' because it is a read-only property.
+
+
+
+
+
 interface Outer {
     inner: {
         x: number;

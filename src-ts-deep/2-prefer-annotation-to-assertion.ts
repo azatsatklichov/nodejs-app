@@ -6,13 +6,42 @@ const ole = <Person>{name: 'Bob'};
 
  
  
-const alice2: Person = { name: 'Alice', id:3434 };  
-const bob2 = { name: 'Bob', id:3434  } as Person;  
+const alice2: Person = { name: 'Alice', id:3434 };  // Shows error
+const bob2 = { name: 'Bob', id:3434  } as Person;  // No error
 const ole2 = <Person>{};
 
+const alice3a: Person = {};
+//    ~~~~~ Property 'name' is missing in type '{}' but required in type 'Person'
+const bob3a = {} as Person;  // No error
+
+/**
+ * While these achieve similar ends, they are actually quite different! 
+ * The first (alice: Person) adds a type annotation to the variable 
+ * and ensures that the value conforms to the type. 
+ * 
+ * The latter (as Person) performs a type assertion. 
+ * This tells TypeScript that, despite the type it inferred, you know
+better and would like the type to be Person. 
+
+This can be useful in some cases, but it also means that you
+ lose thesafety of type checking. In the example above, the type 
+ assertion allows you to assign a value that does not conform to 
+ the Person interface without any error. This can lead to runtime 
+ errors if you try to access properties that do not exist on the object. 
+ 
+ The type annotation verifies that the value conforms to the interface. Since
+it does not, TypeScript flags an error. The type assertion silences this error
+by telling the type checker that, for whatever reason, you know better than
+it does.
+
+ TypeScript has an additional tool known
+as excess property checking that flags extra properties in objects with
+declared types, but it doesn’t apply if you use an assertion
 
 
-
+ Therefore, it is generally recommended to prefer type annotations over 
+ type assertions whenever possible.
+ */
 
 
 //more examples .... 
@@ -66,16 +95,3 @@ const people5 = ['alice', 'bob', 'jan'].map(
 TypeScript check the validity of the assignment:
  */
 const people6: Perzon[] = ['alice', 'bob', 'jan'].map(name => ({name})); // OK
-
-
-//Casting doesn't actually change the type of the data within the variable. See TS-Casting
-let x:unknown = 9;
-console.log((x as string).length); //undefined, since number has no length, BUT no error shown
-
-let x2:unknown = 'nine';
-console.log((x2 as string).length); //4
-
-
-let x3:unknown = '9';
-console.log((x3 as number).toExponential); //undefined, since number has no length, BUT no error shown
-console.log((x3 as string).length); //1

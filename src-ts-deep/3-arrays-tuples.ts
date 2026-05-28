@@ -19,7 +19,18 @@ const numbers2z = [1,2,3];// inferred to type number[]
 numbers2z.push(4); // no error 
 // comment line below out to see the successful assignment
 numbers2z.push("2"); // Error: Argument of type 'string' is not assignable to parameter of type 'number'.
-let head: number = numbers2[0]; // no error
+let headd: number = numbers2z[0]; // no 
+console.log(headd); // 1
+
+
+let f = [] //let f: never[]
+f[5] = "some value"; //not assignable to type 'never'
+// no error, but f is of type never[] and we are assigning a string to it, which is not correct. 
+// This is a limitation of TypeScript's type inference when it comes to empty arrays. To avoid this issue, it's better 
+// to explicitly specify the type of the array when declaring it, like this: let f: string[] = []; 
+
+let f2:string[] = [] 
+f2[5] = 5; // Error: Type 'number' is not assignable to type 'string'.
 
 
 
@@ -38,6 +49,9 @@ console.log(emp);
 
 const emp2: [string, number] = ["Steve", 1];
 console.log(emp2);
+
+const emp3: [string, number] = [3, "Steve"]; // Type 'number' is not assignable to type 'string'. 
+console.log(emp3);
 
 const person: [number, string, boolean] = [1, "Steve", true];
 console.log(person);

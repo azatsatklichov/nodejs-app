@@ -1,11 +1,25 @@
+
+/**
+ * Thinking of types as sets of values helps you reason about operations on
+them. For example:
+
+TypeScript’s structural typing rules mean that the value could have other properties, too. 
+It could even be callable! This fact can sometimes be obscured by excess property checking
+ */
 interface Person {
-    name: string;
+  name: string;
 }
 interface Lifespan {
-    birth: Date;
-    death?: Date;
+  birth: Date;
+  death?: Date;
 }
 
+ 
+/**
+ * The & operator computes the intersection of two types. What sorts of values
+belong to the PersonSpan type?
+
+ */
 type PersonSpan = Person & Lifespan;
 const p:PersonSpan = {name:'Alan', birth: new Date()};
 //p. ///like declaration merging,... 
@@ -21,14 +35,16 @@ const u:PersonUnion =  {birth: new Date()}; //try {name: "d" }
  * The & operator computes the intersection of two types. What sorts of values
 belong to the PersonSpan type? On first glance, the Person and Lifespan
 interfaces have no properties in common, so you might expect it to be the
-empty set (i.e., the never type). But type operations apply to the sets of
+empty set (i.e., the never type). 
+
+But type operations apply to the sets of
 values (the domain of the type), not to the properties in the interface. And
 remember that values with additional properties still belong to a type. So a
 value that has the properties of both Person and Lifespan will belong to
 the intersection type:
  * 
  */
-const ps: PersonSpan = {
+const ps2: PersonSpan = {
     name: 'Alan Turing',
     birth: new Date('1912/06/23'),
     death: new Date('1954/06/07'),
@@ -39,7 +55,7 @@ const ps: PersonSpan = {
  * The intuition about intersecting properties is correct, but for the union of
 two interfaces, rather than their intersection:
  */
-type K = keyof (Person | Lifespan);
+type KK = keyof (Person | Lifespan);
 // ^? type K = never
 
 /**
